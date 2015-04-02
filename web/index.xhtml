@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+   <f:view>
+       <h:body>
+          <!-- <ui:composition template="./WEB-INF/includes-templates/player-template.xhtml">
+               <ui:param name="pageTitle" value="#{msgs.player}" />
+
+               <ui:define name="content">
+                   <h:form>
+                       <h:panelGrid columns="1" columnClasses="dataLabel">
+
+                           <h:column>
+                               <h1><h:outputText value="#{msgs.game}"/></h1>
+                               <h:dataTable value="#{game.allGames}" var="item" styleClass="dataTable">
+                                   <f:facet name="caption">
+                                       <h:outputText value="#{msgs.list_of_games}"/>
+                                   </f:facet>
+                                   <h:column>
+                                       <f:facet name="header">
+                                           <h:outputText value="#{msgs.name}"/>
+                                       </f:facet>
+                                       <h:outputText value="#{item.name}"/>
+                                   </h:column>
+                                   <h:column>
+                                       <f:facet name="header">
+                                           <h:outputText value="#{msgs.start_time}"/>
+                                       </f:facet>
+                                       <h:outputText value="#{item.startTime}"/>
+                                   </h:column>
+                                   <h:column>
+                                       <f:facet name="header">
+                                           <h:outputText value="#{msgs.end_time}"/>
+                                       </f:facet>
+                                       <h:outputText value="#{item.endTime}"/>
+                                   </h:column>
+                                   <h:column>
+                                       <h:commandButton value="#{msgs.registr}" action="#{player.loginToGame(item)}" />
+                                   </h:column>
+                                   <h:column>
+                                       <h:commandButton value="#{msgs.remove}" action="#{players.removePlayer(item)}" />
+                                   </h:column>
+                               </h:dataTable>
+                               <h:messages />
+                           </h:column>
+                       </h:panelGrid>
+                   </h:form>
+               </ui:define>
+           </ui:composition>-->
+       </h:body>
+
+   </f:view>
+</html>
