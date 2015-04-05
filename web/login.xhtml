@@ -15,12 +15,12 @@
        <h:form>
            <p:panelGrid columns="2" style="position: absolute; top: 250px; left: 500px;">
                <f:facet name="header">Login Form</f:facet>
-               <h:outputText value="Username"/>
-               <p:inputText value="#{login.username}"/>
+               <h:outputText value="Email"/>
+               <p:inputText value="#{login.email}"/>
                <h:outputText value="Password"/>
                <p:password value="#{login.password}"/>
                <f:facet name="footer">
-                   <p:commandButton value="Login" action="#{login.loginControl}"/>
+                   <p:commandButton value="Login" action="#{login.login}"/>
                </f:facet>
            </p:panelGrid>
        </h:form>

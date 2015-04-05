@@ -1,6 +1,7 @@
 package cz.wa2.poll.frontend.bean;
 
 import cz.wa2.poll.frontend.dto.VoterDTO;
+import cz.wa2.poll.frontend.rest.VoterClient;
 import org.apache.log4j.Logger;
 import org.primefaces.context.RequestContext;
 
@@ -19,11 +20,6 @@ import javax.ws.rs.core.Response;
 import java.io.Serializable;
 import java.util.List;
 
-//import com.sun.jersey.api.client.Client;
-//import com.sun.jersey.api.client.GenericType;
-//import com.sun.jersey.api.client.WebResource;
-//import com.sun.jersey.api.client.ClientResponse;
-
 @ManagedBean(name = "register")
 @RequestScoped
 public class RegisterController implements Serializable {
@@ -41,23 +37,16 @@ public class RegisterController implements Serializable {
             logger.debug("This is debug");
         }
 
+
+
         VoterDTO voter = new VoterDTO();
         voter.setFirstName(firstName);
         voter.setLastName(lastName);
         voter.setEmail(email);
         voter.setPassword(password);
 
-        Client restClient = ClientBuilder.newClient();
-
-        WebTarget target = restClient.target("http://localhost:8080/rest");
-
-        WebTarget resourceTarget = target.path("/voter"); //change the URI without affecting a root URI
-        Response response = resourceTarget.request(MediaType.APPLICATION_JSON_TYPE).post(Entity.entity(voter, MediaType.APPLICATION_JSON));
-        if (response.getStatus() != 200) {
-            throw new RuntimeException("Error occurred on server "
-                    + response.getStatus());
-        }
-
+        VoterClient voterClient = new VoterClient();
+        voterClient.saveVoter(voter);
     }
 
 

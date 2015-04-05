@@ -1,0 +1,34 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <p:tabMenu activeIndex="#{param.i}">
+
+        <p:menuitem value="Home" url="Menu.jsf?i=0" icon="ui-icon-star">
+            <f:param name="i" value="0" />
+        </p:menuitem>
+
+        <p:menuitem value="Create Group" url="/create-group.xhtml?i=1" icon="ui-icon-wrench">
+            <f:param name="i" value="1" />
+        </p:menuitem>
+
+        <p:menuitem value="Supervised Groups" url="/supervised-groups.xhtml?i=2"  icon="ui-icon-search">
+            <f:param name="i" value="2" />
+        </p:menuitem>
+
+        <p:menuitem value="Register Group" url="/register-group.xhtml?i=3"  icon="ui-icon-search">
+            <f:param name="i" value="3" />
+        </p:menuitem>
+
+        <p:menuitem value="Logout" url="/login.xhtml"  icon="ui-icon-close"/>
+
+        <f:facet name="options">
+            <h:form>
+                <p:commandButton type="button" value="Logout" action="#{login.logout}" icon="ui-icon-extlink" />
+            </h:form>
+        </f:facet>
+
+    </p:tabMenu>
+</ui:composition>
