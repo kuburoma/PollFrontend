@@ -3,22 +3,10 @@ package cz.wa2.poll.frontend.bean;
 import cz.wa2.poll.frontend.dto.VoterDTO;
 import cz.wa2.poll.frontend.rest.VoterClient;
 import org.apache.log4j.Logger;
-import org.primefaces.context.RequestContext;
 
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.GenericType;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import java.io.Serializable;
-import java.util.List;
 
 @ManagedBean(name = "register")
 @RequestScoped
@@ -31,13 +19,11 @@ public class RegisterController implements Serializable {
     private String email;
     private String password;
 
-    public void register(){
+    public String register(){
 
         if(logger.isDebugEnabled()){
             logger.debug("This is debug");
         }
-
-
 
         VoterDTO voter = new VoterDTO();
         voter.setFirstName(firstName);
@@ -47,6 +33,7 @@ public class RegisterController implements Serializable {
 
         VoterClient voterClient = new VoterClient();
         voterClient.saveVoter(voter);
+        return "/login.xhtml";
     }
 
 

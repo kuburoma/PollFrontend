@@ -1,14 +1,12 @@
 package cz.wa2.poll.frontend.dto;
 
-
 import java.io.Serializable;
 
-public class VoterGroupDTO implements Serializable {
+public class PollDTO implements Serializable {
 
     private Long id;
     private String name;
-    private String description;
-    private VoterDTO supervisor;
+    private String question;
 
     public Long getId() {
         return id;
@@ -26,27 +24,19 @@ public class VoterGroupDTO implements Serializable {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getQuestion() {
+        return question;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public VoterDTO getSupervisor() {
-        return supervisor;
-    }
-
-    public void setSupervisor(VoterDTO supervisor) {
-        this.supervisor = supervisor;
+    public void setQuestion(String question) {
+        this.question = question;
     }
 
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer();
         sb.append("Name: "+name+"\n");
-        sb.append("Description: "+description+"\n");
+        sb.append("Question: "+question+"\n");
         return sb.toString();
     }
 }

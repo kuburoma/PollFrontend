@@ -1,10 +1,14 @@
 package cz.wa2.poll.frontend.rest;
 
+import cz.wa2.poll.frontend.dto.BallotDTO;
+import cz.wa2.poll.frontend.dto.PollDTO;
 import cz.wa2.poll.frontend.dto.VoterDTO;
 import cz.wa2.poll.frontend.dto.VoterGroupDTO;
 import org.apache.log4j.Logger;
 
-import javax.ws.rs.*;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.client.*;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
@@ -163,6 +167,71 @@ public class VoterClient {
             List<VoterGroupDTO> voters = response.readEntity(new GenericType<List<VoterGroupDTO>>() {
             });
             response.close();
+        }
+    }
+
+    // @GET
+    // @Path(value = "/{id}/nonvoted_polls")
+    public List<PollDTO> getNonvotedPolls(Long id) {
+        WebTarget resourceTarget = target.path("/" + id).path("/nonvoted_polls");
+        Invocation.Builder invocationBuilder = resourceTarget.request(MediaType.APPLICATION_JSON_TYPE);
+        Response response = invocationBuilder.get();
+        int status = response.getStatus();
+
+        if (logger.isDebugEnabled()) {
+            logger.debug("getNonvotedPolls.status = " + status);
+        }
+
+        if (status == 200) {
+            List<PollDTO> voters = response.readEntity(new GenericType<List<PollDTO>>() {
+            });
+            response.close();
+            return voters;
+        } else {
+            return new ArrayList<PollDTO>();
+        }
+    }
+
+    // @GET
+    // @Path(value = "/{id}/voted_polls")
+    public List<PollDTO> getVotedPolls(Long id) {
+        WebTarget resourceTarget = target.path("/" + id).path("/voted_polls");
+        Invocation.Builder invocationBuilder = resourceTarget.request(MediaType.APPLICATION_JSON_TYPE);
+        Response response = invocationBuilder.get();
+        int status = response.getStatus();
+
+        if (logger.isDebugEnabled()) {
+            logger.debug("getNonvotedPolls.status = " + status);
+        }
+
+        if (status == 200) {
+            List<PollDTO> voters = response.readEntity(new GenericType<List<PollDTO>>() {
+            });
+            response.close();
+            return voters;
+        } else {
+            return new ArrayList<PollDTO>();
+        }
+    }
+
+    // @GET
+    // @Path(value = "/{voter}/poll/{poll}/ballot")
+    public BallotDTO getBallot(Long voterId, Long pollId) {
+        WebTarget resourceTarget = target.path("/" + voterId).path("/poll").path("/" + pollId).path("/ballot");
+        Invocation.Builder invocationBuilder = resourceTarget.request(MediaType.APPLICATION_JSON_TYPE);
+        Response response = invocationBuilder.get();
+        int status = response.getStatus();
+
+        if (logger.isDebugEnabled()) {
+            logger.debug("getNonvotedPolls.status = " + status);
+        }
+
+        if (status == 200) {
+            BallotDTO ballotDTO = response.readEntity(BallotDTO.class);
+            response.close();
+            return ballotDTO;
+        } else {
+            return null;
         }
     }
 

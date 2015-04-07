@@ -1,10 +1,10 @@
 package cz.wa2.poll.frontend.bean;
 
+import cz.wa2.poll.frontend.dto.PollDTO;
 import cz.wa2.poll.frontend.dto.VoterGroupDTO;
 import cz.wa2.poll.frontend.exception.ClientException;
 import cz.wa2.poll.frontend.rest.VoterClient;
 import cz.wa2.poll.frontend.rest.VoterGroupClient;
-import org.glassfish.jersey.process.internal.RequestScoped;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -12,22 +12,34 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import java.util.List;
 
-@ManagedBean(name="registerGroupView")
-@RequestScoped
-public class RegisterGroupView {
+@ManagedBean(name="pollView")
+@ViewScoped
+public class PollView {
 
-    private List<VoterGroupDTO> voterGroupDTOs;
+
+    private VoterClient voterClient = new VoterClient();
+    private List<PollDTO> pollDTOs;
 
     @ManagedProperty(value="#{voter}")
     LoggedVoter loggedVoter;
 
     @PostConstruct
     public void init() {
-        VoterClient voterClient = new VoterClient();
-        voterGroupDTOs = voterClient.getNotregistredGroups(loggedVoter.getVoter().getId());
+        pollDTOs = loggedVoter.getPollDTOList();
     }
 
-    public String registerIntoGroup(VoterGroupDTO voterGroupDTO){
+    public String vote(PollDTO pollDTO){
+        loggedVoter.setPollDTO(pollDTO);
+        loggedVoter.setBallotDTO(voterClient.getBallot(loggedVoter.getVoter().getId(), pollDTO.getId()));
+        return "/vote-in-poll.xhtml";
+    }
+
+    public String results(PollDTO pollDTO){
+        loggedVoter.setPollDTO(pollDTO);
+        return "/vote-chart.xhtml";
+    }
+
+    public String nonvotedPolls(VoterGroupDTO voterGroupDTO){
         VoterGroupClient voterGroupClient = new VoterGroupClient();
         try {
             voterGroupClient.putVoterToVotergroup(voterGroupDTO.getId(), loggedVoter.getVoter().getId());
@@ -37,8 +49,9 @@ public class RegisterGroupView {
         return "/register-group.xhtml";
     }
 
-    public List<VoterGroupDTO> getVoterGroupDTOs() {
-        return voterGroupDTOs;
+
+    public List<PollDTO> getPollDTOs() {
+        return pollDTOs;
     }
 
     public LoggedVoter getLoggedVoter() {

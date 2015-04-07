@@ -10,8 +10,6 @@
 </h:head>
 <h:body>
 
-    <ui:include src="/socket.xhtml"/>
-
     <h:form id="form">
         <ui:include src="/tabMenu.xhtml"/>
         <p:growl id="msgs" showDetail="true"/>
@@ -26,12 +24,8 @@
                 <h:outputText value="#{group.description}"/>
             </p:column>
 
-            <p:column headerText="Remove Voter" style="width:32px">
-                <p:commandButton value="Manage" action="#{groupView.updateSelectedGroup(group)}" icon="ui-icon-zoomin"/>
-            </p:column>
-
-            <p:column headerText="New Poll" style="width:32px">
-                <p:commandButton value="Manage" action="#{groupView.createNewPoll(group)}" icon="ui-icon-zoomin"/>
+            <p:column headerText="Edit" style="width:32px">
+                <p:commandButton value="Leave" action="#{groupView.unregisterFromGroup(group)}" icon="ui-icon-check"/>
             </p:column>
 
         </p:dataTable>

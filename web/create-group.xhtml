@@ -8,14 +8,27 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
     <title>Login Page</title>
+    <script type="text/javascript">
+        console.log("ahoj");
+
+        function handleMessage(facesmessage) {
+            facesmessage.severity = 'info';
+            console.log("přišla zprava");
+            growl.show([facesmessage]);
+        }
+    </script>
 </h:head>
 <h:body>
-    <ui:include src="/tabMenu.xhtml" />
 
+    <ui:include src="/socket.xhtml" />
 
+    <p:socket onMessage="handleMessage" channel="/pokus" />
 
     <h:form>
-        <p:growl id="growl" sticky="true" showDetail="true"/>
+        <ui:include src="/tabMenu.xhtml" />
+
+        <p:socket onMessage="handleMessage" channel="/pokus" />
+
         <p:panelGrid columns="2" style="position: absolute; top: 250px; left: 500px;">
             <f:facet name="header">Create group</f:facet>
             <h:outputText value="Name"/>

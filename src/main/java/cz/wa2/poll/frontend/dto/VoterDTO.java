@@ -1,10 +1,10 @@
 package cz.wa2.poll.frontend.dto;
 
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-public class VoterDTO {
+public class VoterDTO implements Serializable{
 
     public VoterDTO(){}
 

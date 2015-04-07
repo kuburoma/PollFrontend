@@ -1,5 +1,6 @@
 package cz.wa2.poll.frontend.rest;
 
+import cz.wa2.poll.frontend.dto.PollDTO;
 import cz.wa2.poll.frontend.dto.VoterDTO;
 import cz.wa2.poll.frontend.dto.VoterGroupDTO;
 import cz.wa2.poll.frontend.exception.ClientException;
@@ -9,7 +10,6 @@ import javax.ws.rs.client.*;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.ArrayList;
 import java.util.List;
 
 public class VoterGroupClient {
@@ -98,6 +98,24 @@ public class VoterGroupClient {
         response.close();
         if (status != 200) {
             throw new ClientException("REST "+resourceTarget.getUri().toString()+" response: " + status);
+        }
+    }
+
+    // @POST
+    // @Path("/{id}/poll")
+    public void createPoll(PollDTO pollDTO, Long votergroup) throws ClientException {
+        WebTarget resourceTarget = target.path("/" + votergroup).path("/poll");
+        Invocation.Builder invocationBuilder = resourceTarget.request(MediaType.APPLICATION_JSON_TYPE);
+        Response response = invocationBuilder.post(Entity.entity(pollDTO, MediaType.APPLICATION_JSON));
+        int status = response.getStatus();
+        response.close();
+
+        if (logger.isDebugEnabled()) {
+            logger.debug("putVoterToVotergroup.status = " + status);
+        }
+
+        if (status != 200) {
+            throw new ClientException("REST response: " + status);
         }
     }
 
