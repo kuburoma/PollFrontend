@@ -201,7 +201,7 @@ public class VoterClient {
         int status = response.getStatus();
 
         if (logger.isDebugEnabled()) {
-            logger.debug("getNonvotedPolls.status = " + status);
+            logger.debug("getVotedPolls.status = " + status);
         }
 
         if (status == 200) {

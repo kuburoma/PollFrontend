@@ -37,6 +37,7 @@ public class LoginController implements Serializable {
 
     public String logout() {
         loggedVoter.setVoter(null);
+        System.out.println("Odhlaš");
         return "login.xhtml";
     }
 

@@ -30,12 +30,12 @@ public class MenuController {
     }
 
     public String registerGroups(){
-        loggedVoter.setVoterGroupDTOList(voterClient.getRegistredGroups(loggedVoter.getVoter().getId()));
+        loggedVoter.setVoterGroupDTOList(voterClient.getNotregistredGroups(loggedVoter.getVoter().getId()));
         return "/register-group.xhtml";
     }
 
     public String unregisterGroups(){
-        loggedVoter.setVoterGroupDTOList(voterClient.getNotregistredGroups(loggedVoter.getVoter().getId()));
+        loggedVoter.setVoterGroupDTOList(voterClient.getRegistredGroups(loggedVoter.getVoter().getId()));
         return "/unregister-group.xhtml";
     }
 
