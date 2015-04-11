@@ -8,12 +8,12 @@ import cz.wa2.poll.frontend.websocket.QueueConsumer;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import java.io.IOException;
+import java.io.Serializable;
 import java.util.List;
 
 @ManagedBean(name = "voter")
 @SessionScoped
-public class LoggedVoter {
+public class LoggedVoter extends UniversalController implements Serializable {
 
     private VoterDTO voter;
     private VoterGroupDTO voterGroupDTO;

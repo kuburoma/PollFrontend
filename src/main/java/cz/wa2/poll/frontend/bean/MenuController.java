@@ -5,10 +5,11 @@ import cz.wa2.poll.frontend.rest.VoterClient;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import java.io.Serializable;
 
 @ManagedBean(name = "menu")
 @SessionScoped
-public class MenuController {
+public class MenuController extends UniversalController implements Serializable{
 
     VoterClient voterClient = new VoterClient();
 

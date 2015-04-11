@@ -4,24 +4,35 @@ import cz.wa2.poll.frontend.dto.VoterGroupDTO;
 import cz.wa2.poll.frontend.exception.ClientException;
 import cz.wa2.poll.frontend.rest.VoterClient;
 import cz.wa2.poll.frontend.rest.VoterGroupClient;
+import org.primefaces.context.RequestContext;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
+import java.io.Serializable;
 import java.util.List;
 
 @ManagedBean(name="groupView")
 @ViewScoped
-public class GroupView {
+public class GroupView extends UniversalController implements Serializable {
 
     private List<VoterGroupDTO> voterGroupDTOs;
 
     @ManagedProperty(value="#{voter}")
     LoggedVoter loggedVoter;
+    VoterClient voterClient = new VoterClient();
 
     @PostConstruct
     public void init() {
+        String path = ((HttpServletRequest) FacesContext.getCurrentInstance()
+                .getExternalContext().getRequest()).getRequestURI();
+        if(path.equals("/supervised-groups.xhtml")){
+            voterGroupDTOs = voterClient.getSupervisedGroups(loggedVoter.getVoter().getId());
+        }
+
         VoterClient voterClient = new VoterClient();
         voterGroupDTOs = loggedVoter.getVoterGroupDTOList();
     }

@@ -1,17 +1,15 @@
 package cz.wa2.poll.frontend.dto;
 
-import java.io.Serializable;
-
-public class BallotDTO implements Serializable {
+public class BallotDTO {
 
     private Long id;
-    private Long answer;
+    private Integer answer;
 
-    public Long getAnswer() {
+    public Integer getAnswer() {
         return answer;
     }
 
-    public void setAnswer(Long answer) {
+    public void setAnswer(Integer answer) {
         this.answer = answer;
     }
 

@@ -11,12 +11,11 @@
 </h:head>
 <h:body>
 
-    <p:socket onMessage="handleMessage" channel="/pokus" />
+    <p:growl id="growl" sticky="true" showDetail="true"/>
 
     <h:form>
         <ui:include src="/tabMenu.xhtml" />
 
-        <p:socket onMessage="handleMessage" channel="/pokus" />
 
         <p:panelGrid columns="2" style="position: absolute; top: 250px; left: 500px;">
             <f:facet name="header">Create group</f:facet>

@@ -1,16 +1,20 @@
 package cz.wa2.poll.frontend.bean;
 
 import cz.wa2.poll.frontend.dto.VoterDTO;
+import cz.wa2.poll.frontend.exception.ClientException;
 import cz.wa2.poll.frontend.rest.VoterClient;
 import org.apache.log4j.Logger;
+import org.primefaces.context.RequestContext;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 import java.io.Serializable;
 
 @ManagedBean(name = "register")
 @RequestScoped
-public class RegisterController implements Serializable {
+public class RegisterController extends UniversalController implements Serializable {
 
     final static Logger logger = Logger.getLogger(RegisterController.class);
 
@@ -32,8 +36,17 @@ public class RegisterController implements Serializable {
         voter.setPassword(password);
 
         VoterClient voterClient = new VoterClient();
-        voterClient.saveVoter(voter);
-        return "/login.xhtml";
+
+        try {
+            voterClient.saveVoter(voter);
+            addMessage(FacesMessage.SEVERITY_INFO, "Info", "Úspěšně jste se zaregistrovali.");
+            return "/login.xhtml";
+        } catch (ClientException e) {
+            addMessage(FacesMessage.SEVERITY_ERROR, "Error", e.getMessage());
+            return "";
+        }
+
+
     }
 
 
@@ -68,4 +81,5 @@ public class RegisterController implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+
 }

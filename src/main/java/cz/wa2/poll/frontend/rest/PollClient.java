@@ -4,9 +4,6 @@ import cz.wa2.poll.frontend.dto.BallotDTO;
 import cz.wa2.poll.frontend.dto.PollDTO;
 import org.apache.log4j.Logger;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.client.*;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;

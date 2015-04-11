@@ -1,14 +1,13 @@
 package cz.wa2.poll.frontend.dto;
 
-
-import java.io.Serializable;
-
-public class VoterGroupDTO implements Serializable {
+public class VoterGroupDTO {
 
     private Long id;
     private String name;
     private String description;
-    private VoterDTO supervisor;
+
+    public VoterGroupDTO() {
+    }
 
     public Long getId() {
         return id;
@@ -32,14 +31,6 @@ public class VoterGroupDTO implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public VoterDTO getSupervisor() {
-        return supervisor;
-    }
-
-    public void setSupervisor(VoterDTO supervisor) {
-        this.supervisor = supervisor;
     }
 
     @Override

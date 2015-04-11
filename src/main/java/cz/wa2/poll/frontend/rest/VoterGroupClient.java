@@ -19,34 +19,10 @@ public class VoterGroupClient {
 
     final static Logger logger = Logger.getLogger(VoterClient.class);
 
-    // @POST
-    public void create(VoterGroupDTO voterGroupDTO) {
-        Invocation.Builder invocationBuilder = target.request(MediaType.APPLICATION_JSON_TYPE);
-        Response response = invocationBuilder.post(Entity.entity(voterGroupDTO, MediaType.APPLICATION_JSON));
-        int status = response.getStatus();
-
-        if (logger.isDebugEnabled()) {
-            logger.debug("create.status = " + status);
-        }
-        response.close();
-    }
-
-    public void update(VoterGroupDTO voterGroupDTO) {
-        WebTarget resourceTarget = target.path("/" + voterGroupDTO.getId());
-        Invocation.Builder invocationBuilder = resourceTarget.request(MediaType.APPLICATION_JSON_TYPE);
-        Response response = invocationBuilder.put(Entity.entity(voterGroupDTO, MediaType.APPLICATION_JSON));
-        int status = response.getStatus();
-
-        if (logger.isDebugEnabled()) {
-            logger.debug("authorizeVoter.status = " + status);
-        }
-        response.close();
-    }
-
     // @GET
     // @Path("/{id}/voters")
     public List<VoterDTO> getVoters(Long id) throws ClientException {
-        WebTarget resourceTarget = target.path("/" + id).path("/voters");
+        WebTarget resourceTarget = target.path("/" + id).path("/voter");
         Invocation.Builder invocationBuilder = resourceTarget.request(MediaType.APPLICATION_JSON_TYPE);
         Response response = invocationBuilder.get();
         int status = response.getStatus();
@@ -97,7 +73,7 @@ public class VoterGroupClient {
         }
         response.close();
         if (status != 200) {
-            throw new ClientException("REST "+resourceTarget.getUri().toString()+" response: " + status);
+            throw new ClientException("");
         }
     }
 

@@ -1,20 +1,13 @@
 package cz.wa2.poll.frontend.dto;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
-public class VoterDTO implements Serializable{
-
-    public VoterDTO(){}
+public class VoterDTO {
 
     private Long id;
     private String firstName;
     private String lastName;
     private String email;
     private String password;
-    private List<VoterGroupDTO> supervisedGroups;
-    private List<VoterGroupDTO> voterGroups;
 
     public Long getId() {
         return id;
@@ -56,40 +49,4 @@ public class VoterDTO implements Serializable{
         this.password = password;
     }
 
-    public List<VoterGroupDTO> getSupervisedGroups() {
-        if(this.supervisedGroups == null){
-            this.supervisedGroups = new ArrayList<VoterGroupDTO>();
-        }
-        return supervisedGroups;
-    }
-
-    public void addSupervisedGroup(VoterGroupDTO supervisedGroup) {
-        if(this.supervisedGroups == null){
-            this.supervisedGroups = new ArrayList<VoterGroupDTO>();
-        }
-        this.supervisedGroups.add(supervisedGroup);
-    }
-
-    public void setSupervisedGroups(List<VoterGroupDTO> supervisedGroups) {
-        this.supervisedGroups = supervisedGroups;
-    }
-
-    public List<VoterGroupDTO> getVoterGroups() {
-        if(this.voterGroups == null){
-            this.voterGroups = new ArrayList<VoterGroupDTO>();
-        }
-        return voterGroups;
-    }
-
-    public void addVoterGroup(VoterGroupDTO voterGroup){
-        if(this.voterGroups == null){
-            this.voterGroups = new ArrayList<VoterGroupDTO>();
-        }
-        this.voterGroups.add(voterGroup);
-
-    }
-
-    public void setVoterGroups(List<VoterGroupDTO> voterGroups) {
-        this.voterGroups = voterGroups;
-    }
 }

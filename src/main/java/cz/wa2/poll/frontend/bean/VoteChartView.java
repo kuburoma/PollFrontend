@@ -1,9 +1,7 @@
 package cz.wa2.poll.frontend.bean;
 
 import cz.wa2.poll.frontend.dto.BallotDTO;
-import cz.wa2.poll.frontend.rest.BallotClient;
 import cz.wa2.poll.frontend.rest.PollClient;
-import cz.wa2.poll.frontend.rest.VoterClient;
 import org.primefaces.model.chart.PieChartModel;
 
 import javax.annotation.PostConstruct;
@@ -32,7 +30,7 @@ public class VoteChartView {
         int yes = 0;
         int no = 0;
         Iterator<BallotDTO> it = ballotList.iterator();
-        while(it.hasNext()){
+/*        while(it.hasNext()){
             Long answer = it.next().getAnswer();
             if(answer == 0L){
                 notVoted++;
@@ -43,7 +41,7 @@ public class VoteChartView {
             if(answer == 2L){
                 no++;
             }
-        }
+        }*/
 
 
         chart = new PieChartModel();

@@ -1,12 +1,13 @@
 package cz.wa2.poll.frontend.dto;
 
-import java.io.Serializable;
-
-public class PollDTO implements Serializable {
+public class PollDTO {
 
     private Long id;
     private String name;
     private String question;
+
+    public PollDTO() {
+    }
 
     public Long getId() {
         return id;

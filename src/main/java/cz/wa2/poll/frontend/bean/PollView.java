@@ -10,11 +10,12 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import java.io.Serializable;
 import java.util.List;
 
 @ManagedBean(name="pollView")
 @ViewScoped
-public class PollView {
+public class PollView extends UniversalController implements Serializable {
 
 
     private VoterClient voterClient = new VoterClient();

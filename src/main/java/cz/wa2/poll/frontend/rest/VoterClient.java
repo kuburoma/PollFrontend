@@ -4,11 +4,9 @@ import cz.wa2.poll.frontend.dto.BallotDTO;
 import cz.wa2.poll.frontend.dto.PollDTO;
 import cz.wa2.poll.frontend.dto.VoterDTO;
 import cz.wa2.poll.frontend.dto.VoterGroupDTO;
+import cz.wa2.poll.frontend.exception.ClientException;
 import org.apache.log4j.Logger;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.client.*;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
@@ -45,7 +43,6 @@ public class VoterClient {
     }
 
     // @GET
-    // /voter
     public List<VoterDTO> getVoters() {
         Invocation.Builder invocationBuilder = target.request(MediaType.APPLICATION_JSON_TYPE);
         Response response = invocationBuilder.get();
@@ -87,59 +84,28 @@ public class VoterClient {
     }
 
     // @GET
-    // /voter/{id}/supervised_groups
     public List<VoterGroupDTO> getSupervisedGroups(Long id) {
-        WebTarget resourceTarget = target.path("/" + id).path("/supervised_groups");
-        Invocation.Builder invocationBuilder = resourceTarget.request(MediaType.APPLICATION_JSON_TYPE);
-        Response response = invocationBuilder.get();
-        int status = response.getStatus();
-
-        if (logger.isDebugEnabled()) {
-            logger.debug("getSupervisedGroups.status = " + status);
-        }
-
-        if (status == 200) {
-            List<VoterGroupDTO> voters = response.readEntity(new GenericType<List<VoterGroupDTO>>() {
-            });
-            response.close();
-            return voters;
-        } else {
-            return new ArrayList<VoterGroupDTO>();
-        }
+        return getGroups(id, 2);
     }
 
     // @GET
-    // /voter/{id}/registred_groups
     public List<VoterGroupDTO> getRegistredGroups(Long id) {
-        WebTarget resourceTarget = target.path("/" + id).path("/registred_groups");
-        Invocation.Builder invocationBuilder = resourceTarget.request(MediaType.APPLICATION_JSON_TYPE);
-        Response response = invocationBuilder.get();
-        int status = response.getStatus();
-
-        if (logger.isDebugEnabled()) {
-            logger.debug("getRegistredGroups.status = " + status);
-        }
-
-        if (status == 200) {
-            List<VoterGroupDTO> voters = response.readEntity(new GenericType<List<VoterGroupDTO>>() {
-            });
-            response.close();
-            return voters;
-        } else {
-            return new ArrayList<VoterGroupDTO>();
-        }
+        return getGroups(id, 1);
     }
 
     // @GET
-    // /voter/{id}/notregistred_groups
     public List<VoterGroupDTO> getNotregistredGroups(Long id) {
-        WebTarget resourceTarget = target.path("/" + id).path("/notregistred_groups");
+            return getGroups(id, 0);
+    }
+
+    public List<VoterGroupDTO> getGroups(Long id, Integer findWho) {
+        WebTarget resourceTarget = target.path("/" + id).path("/group").queryParam("findWho",findWho);
         Invocation.Builder invocationBuilder = resourceTarget.request(MediaType.APPLICATION_JSON_TYPE);
         Response response = invocationBuilder.get();
         int status = response.getStatus();
 
         if (logger.isDebugEnabled()) {
-            logger.debug("getNotregistredGroups.status = " + status);
+            logger.debug("geGroups.status = " + status);
         }
 
         if (status == 200) {
@@ -154,9 +120,31 @@ public class VoterClient {
 
     // @POST
     // /voter
-    public void saveVoter(VoterDTO voter) {
-        Invocation.Builder invocationBuilder = target.request(MediaType.APPLICATION_JSON_TYPE);
+    public void saveVoterGroup(Long voterId, VoterGroupDTO voter) throws ClientException {
+        WebTarget resourceTarget = target.path("/" + voterId).path("/group");
+        Invocation.Builder invocationBuilder = resourceTarget.request(MediaType.APPLICATION_JSON_TYPE);
         Response response = invocationBuilder.post(Entity.entity(voter, MediaType.APPLICATION_JSON));
+        int status = response.getStatus();
+
+        if (logger.isDebugEnabled()) {
+            logger.debug("saveVoterGroup.status = " + status);
+        }
+
+        if (status == 200) {
+            response.close();
+        }else{
+            String error = response.readEntity(String.class);
+            response.close();
+            throw new ClientException(error);
+        }
+
+    }
+
+    // @POST
+    // /voter
+    public void saveVoter(VoterDTO voterDTO) throws ClientException {
+        Invocation.Builder invocationBuilder = target.request(MediaType.APPLICATION_JSON_TYPE);
+        Response response = invocationBuilder.post(Entity.entity(voterDTO, MediaType.APPLICATION_JSON));
         int status = response.getStatus();
 
         if (logger.isDebugEnabled()) {
@@ -167,41 +155,31 @@ public class VoterClient {
             List<VoterGroupDTO> voters = response.readEntity(new GenericType<List<VoterGroupDTO>>() {
             });
             response.close();
+        }else{
+            throw new ClientException((String)response.readEntity(String.class));
         }
     }
 
     // @GET
     // @Path(value = "/{id}/nonvoted_polls")
     public List<PollDTO> getNonvotedPolls(Long id) {
-        WebTarget resourceTarget = target.path("/" + id).path("/nonvoted_polls");
-        Invocation.Builder invocationBuilder = resourceTarget.request(MediaType.APPLICATION_JSON_TYPE);
-        Response response = invocationBuilder.get();
-        int status = response.getStatus();
-
-        if (logger.isDebugEnabled()) {
-            logger.debug("getNonvotedPolls.status = " + status);
-        }
-
-        if (status == 200) {
-            List<PollDTO> voters = response.readEntity(new GenericType<List<PollDTO>>() {
-            });
-            response.close();
-            return voters;
-        } else {
-            return new ArrayList<PollDTO>();
-        }
+        return getPolls(id,false);
     }
 
     // @GET
     // @Path(value = "/{id}/voted_polls")
     public List<PollDTO> getVotedPolls(Long id) {
-        WebTarget resourceTarget = target.path("/" + id).path("/voted_polls");
+        return getPolls(id,true);
+    }
+
+    public List<PollDTO> getPolls(Long id, Boolean voted) {
+        WebTarget resourceTarget = target.path("/" + id).path("/poll").queryParam("voted",voted);
         Invocation.Builder invocationBuilder = resourceTarget.request(MediaType.APPLICATION_JSON_TYPE);
         Response response = invocationBuilder.get();
         int status = response.getStatus();
 
         if (logger.isDebugEnabled()) {
-            logger.debug("getVotedPolls.status = " + status);
+            logger.debug("getPolls.status = " + status);
         }
 
         if (status == 200) {

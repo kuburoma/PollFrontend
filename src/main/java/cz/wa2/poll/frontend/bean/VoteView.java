@@ -7,10 +7,11 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import java.io.Serializable;
 
 @ManagedBean(name = "vote")
 @RequestScoped
-public class VoteView {
+public class VoteView extends UniversalController implements Serializable {
 
     @ManagedProperty(value="#{voter}")
     LoggedVoter loggedVoter;
@@ -70,7 +71,7 @@ public class VoteView {
     public String vote(){
         BallotDTO ballotDTO = new BallotDTO();
         ballotDTO.setId(id);
-        ballotDTO.setAnswer(Long.valueOf(answer));
+        ballotDTO.setAnswer(Integer.valueOf(answer));
         BallotClient ballotClient = new BallotClient();
         ballotClient.updateBallot(ballotDTO);
         return "/unvoted-poll.xhtml";

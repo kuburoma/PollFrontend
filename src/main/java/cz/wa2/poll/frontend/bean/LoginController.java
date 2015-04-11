@@ -13,7 +13,7 @@ import java.io.Serializable;
 
 @ManagedBean(name = "login")
 @RequestScoped
-public class LoginController implements Serializable {
+public class LoginController extends UniversalController implements Serializable{
 
     @ManagedProperty(value = "#{voter}")
     LoggedVoter loggedVoter;
