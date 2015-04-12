@@ -28,6 +28,16 @@
                 <p:commandLink action="#{groupView.updateSelectedGroup(group)}" ajax="false" styleClass="ui-icon ui-icon-search" style="margin-left: auto;  margin-right: auto;"/>
             </p:column>
 
+            <p:column headerText="Delete" style="width:32px" >
+                <p:commandLink action="#{groupView.deleteVoterGroup(group)}" ajax="false" styleClass="ui-icon ui-icon-minus" style="margin-left: auto;  margin-right: auto;">
+                    <p:confirm header="Confirmation" message="Do you want to delte group?" icon="ui-icon-alert"/>
+                </p:commandLink>
+                <p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
+                    <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+                    <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
+                </p:confirmDialog>
+            </p:column>
+
             <p:column headerText="New Poll" style="width:32px" >
                 <p:commandLink action="#{groupView.createNewPoll(group)}" ajax="false" styleClass="ui-icon ui-icon-search" style="margin-left: auto;  margin-right: auto;"/>
             </p:column>

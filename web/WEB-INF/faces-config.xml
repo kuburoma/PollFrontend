@@ -41,6 +41,12 @@
             <redirect/>
         </navigation-case>
         <navigation-case>
+            <from-action>#{groupView.deleteVoterGroup(group)}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/supervised-groups.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
             <from-action>#{groupView.createNewPoll(group)}</from-action>
             <from-outcome>success</from-outcome>
             <to-view-id>/new-poll.xhtml</to-view-id>
@@ -91,6 +97,12 @@
             <to-view-id>/vote-chart.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
+        <navigation-case>
+            <from-action>#{pollView.deletePoll(poll)}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/supervised-polls.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/unvoted-polls.xhtml</from-view-id>
@@ -102,6 +114,15 @@
         </navigation-case>
     </navigation-rule>
 
+    <navigation-rule>
+        <from-view-id>/group-voters.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{groupVotersView.removeUser(voter.id)}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/group-voters.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
 
 
     <navigation-rule>
@@ -134,6 +155,11 @@
         <navigation-case>
             <from-outcome>voted</from-outcome>
             <to-view-id>/voted-polls.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>supervised</from-outcome>
+            <to-view-id>/supervised-polls.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
         <navigation-case>

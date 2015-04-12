@@ -2,6 +2,7 @@ package cz.wa2.poll.frontend.rest;
 
 import cz.wa2.poll.frontend.dto.BallotDTO;
 import cz.wa2.poll.frontend.dto.PollDTO;
+import cz.wa2.poll.frontend.exception.ClientException;
 import org.apache.log4j.Logger;
 
 import javax.ws.rs.client.*;
@@ -39,6 +40,26 @@ public class PollClient {
         } else {
             return new ArrayList<BallotDTO>();
         }
+    }
+
+    // @POST
+    // @Path("/{id}")
+    public void deletePoll(Long poll) throws ClientException {
+        WebTarget resourceTarget = target.path("/" + poll);
+        Invocation.Builder invocationBuilder = resourceTarget.request(MediaType.APPLICATION_JSON_TYPE);
+        Response response = invocationBuilder.delete();
+        int status = response.getStatus();
+
+        if (logger.isDebugEnabled()) {
+            logger.debug("deletePoll.status = " + status);
+        }
+
+        if (status != 200) {
+            String error = response.readEntity(String.class);
+            response.close();
+            throw new ClientException(error);
+        }
+        response.close();
     }
 
 }

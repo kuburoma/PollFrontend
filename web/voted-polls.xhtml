@@ -26,8 +26,8 @@
                 <h:outputText value="#{poll.question}"/>
             </p:column>
 
-            <p:column style="width:32px">
-                <p:commandButton value="Result" action="#{pollView.results(poll)}" icon="ui-icon-check"/>
+            <p:column headerText="Results" style="width:32px">
+                <p:commandLink value="Result" action="#{pollView.results(poll)}" styleClass="ui-icon ui-icon-search" ajax="false" style="margin-left: auto;  margin-right: auto;"/>
             </p:column>
 
         </p:dataTable>

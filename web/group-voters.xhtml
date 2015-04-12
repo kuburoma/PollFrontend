@@ -26,7 +26,8 @@
             </p:row>
             <p:row>
                 <p:column colspan="2" style="width:200px; height:100px">
-                    <h:inputTextarea value="#{groupVotersView.voterGroupDTO.description}" readonly="true" style="width:100%; height:100%"/>
+                    <h:inputTextarea value="#{groupVotersView.voterGroupDTO.description}" readonly="true"
+                                     style="width:100%; height:100%"/>
                 </p:column>
             </p:row>
 
@@ -47,7 +48,14 @@
             </p:column>
 
             <p:column headerText="Remove" style="width:32px">
-                <p:commandButton value="Create" action="#{groupVotersView.removeUser(voter.id)}" icon="fa fa-edit" style="width:100%; height:100%; margin:0 auto;"/>
+                <p:commandLink action="#{groupVotersView.removeUser(voter.id)}" ajax="false"
+                               styleClass="ui-icon ui-icon-minus" style="margin-left: auto;  margin-right: auto;">
+                    <p:confirm header="Confirmation" message="Do you want to delte group?" icon="ui-icon-alert"/>
+                </p:commandLink>
+                <p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
+                    <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+                    <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
+                </p:confirmDialog>
             </p:column>
 
         </p:dataTable>

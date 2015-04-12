@@ -74,6 +74,16 @@ public class GroupView extends UniversalController implements Serializable {
         return "success";
     }
 
+    public String deleteVoterGroup(VoterGroupDTO voterGroupDTO){
+        VoterGroupClient voterGroupClient = new VoterGroupClient();
+        try {
+            voterGroupClient.deleteVoterGroup(voterGroupDTO.getId());
+        } catch (ClientException e) {
+            e.printStackTrace();
+        }
+        return "success";
+    }
+
     public List<VoterGroupDTO> getVoterGroupDTOs() {
         return voterGroupDTOs;
     }

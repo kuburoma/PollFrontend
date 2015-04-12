@@ -48,11 +48,9 @@ public class GroupVotersView extends UniversalController implements Serializable
         try {
             voterGroupClient.deleteVoterFromVotergroup(votergroupId,idVoter);
         } catch (ClientException e) {
-            RequestContext.getCurrentInstance().update("growl");
-            FacesContext context = FacesContext.getCurrentInstance();
-            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", e.getMessage()));
+            addMessage(FacesMessage.SEVERITY_ERROR,"Error", e.getMessage());
         }
-        return "/group-voters.xhtml";
+        return "success";
     }
 
     public List<VoterDTO> getVoterDTOs() {

@@ -3,10 +3,12 @@ package cz.wa2.poll.frontend.bean;
 import cz.wa2.poll.frontend.dto.PollDTO;
 import cz.wa2.poll.frontend.dto.VoterGroupDTO;
 import cz.wa2.poll.frontend.exception.ClientException;
+import cz.wa2.poll.frontend.rest.PollClient;
 import cz.wa2.poll.frontend.rest.VoterClient;
 import cz.wa2.poll.frontend.rest.VoterGroupClient;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
@@ -21,6 +23,7 @@ public class PollView extends UniversalController implements Serializable {
 
 
     private VoterClient voterClient = new VoterClient();
+    private PollClient pollClient = new PollClient();
     private List<PollDTO> pollDTOs;
 
     @ManagedProperty(value="#{voter}")
@@ -49,6 +52,16 @@ public class PollView extends UniversalController implements Serializable {
 
     public String results(PollDTO pollDTO){
         loggedVoter.setPollDTO(pollDTO);
+        return "success";
+    }
+
+    public String deletePoll(PollDTO pollDTO){
+        try {
+            pollClient.deletePoll(pollDTO.getId());
+        } catch (ClientException e) {
+            addMessage(FacesMessage.SEVERITY_ERROR,"Error",e.getMessage());
+            return null;
+        }
         return "success";
     }
 

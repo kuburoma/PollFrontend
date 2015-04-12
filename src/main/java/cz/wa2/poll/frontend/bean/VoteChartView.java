@@ -39,8 +39,9 @@ public class VoteChartView {
             Integer answer = it.next().getAnswer();
             if(answer == null){
                 votes[votes.length-1] = votes[votes.length-1]+1;
+            }else {
+                votes[answer] = votes[answer] + 1;
             }
-            votes[answer] = votes[answer]+1;
         }
 
 
