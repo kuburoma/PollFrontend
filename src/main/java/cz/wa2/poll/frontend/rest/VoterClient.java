@@ -163,16 +163,22 @@ public class VoterClient {
     // @GET
     // @Path(value = "/{id}/nonvoted_polls")
     public List<PollDTO> getNonvotedPolls(Long id) {
-        return getPolls(id,false);
+        return getPolls(id,0);
     }
 
     // @GET
     // @Path(value = "/{id}/voted_polls")
     public List<PollDTO> getVotedPolls(Long id) {
-        return getPolls(id,true);
+        return getPolls(id,1);
     }
 
-    public List<PollDTO> getPolls(Long id, Boolean voted) {
+    // @GET
+    // @Path(value = "/{id}/voted_polls")
+    public List<PollDTO> getSupervisedPolls(Long id) {
+        return getPolls(id,2);
+    }
+
+    public List<PollDTO> getPolls(Long id, Integer voted) {
         WebTarget resourceTarget = target.path("/" + id).path("/poll").queryParam("voted",voted);
         Invocation.Builder invocationBuilder = resourceTarget.request(MediaType.APPLICATION_JSON_TYPE);
         Response response = invocationBuilder.get();

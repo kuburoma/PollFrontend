@@ -27,6 +27,7 @@
             </p:column>
 
             <p:column headerText="Edit" style="width:32px">
+                <p:commandLink action="#{groupView.registerIntoGroup(group)}" ajax="false" styleClass="ui-icon ui-icon-search"/>
                 <p:commandButton value="Join Group" action="#{groupView.registerIntoGroup(group)}" icon="ui-icon-check"/>
             </p:column>
 

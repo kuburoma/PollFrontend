@@ -29,6 +29,7 @@
             </p:column>
 
             <p:column headerText="New Poll" style="width:32px">
+                <p:commandLink action="#{groupView.createNewPoll(group)}" ajax="false" styleClass="ui-icon ui-icon-search"/>
                 <p:commandButton value="Manage" action="#{groupView.createNewPoll(group)}" icon="ui-icon-zoomin"/>
             </p:column>
 

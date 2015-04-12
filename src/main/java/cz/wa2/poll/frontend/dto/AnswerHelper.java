@@ -7,7 +7,24 @@ import java.io.Serializable;
  */
 public class AnswerHelper implements Serializable {
 
+    private Integer id;
     private String answer;
+
+    public AnswerHelper() {
+    }
+
+    public AnswerHelper(Integer id, String answer) {
+        this.id = id;
+        this.answer = answer;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getAnswer() {
         return answer;

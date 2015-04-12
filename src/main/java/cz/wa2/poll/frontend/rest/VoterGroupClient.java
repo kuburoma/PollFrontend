@@ -84,14 +84,15 @@ public class VoterGroupClient {
         Invocation.Builder invocationBuilder = resourceTarget.request(MediaType.APPLICATION_JSON_TYPE);
         Response response = invocationBuilder.post(Entity.entity(pollDTO, MediaType.APPLICATION_JSON));
         int status = response.getStatus();
-        response.close();
 
         if (logger.isDebugEnabled()) {
             logger.debug("putVoterToVotergroup.status = " + status);
         }
 
         if (status != 200) {
-            throw new ClientException("REST response: " + status);
+            String error = response.readEntity(String.class);
+            response.close();
+            throw new ClientException(error);
         }
     }
 

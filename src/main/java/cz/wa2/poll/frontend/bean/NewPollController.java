@@ -6,12 +6,15 @@ import cz.wa2.poll.frontend.exception.ClientException;
 import cz.wa2.poll.frontend.rest.VoterGroupClient;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @ManagedBean(name = "newPoll")
 @ViewScoped
@@ -36,6 +39,12 @@ public class NewPollController extends UniversalController implements Serializab
         PollDTO pollDTO = new PollDTO();
         pollDTO.setName(name);
         pollDTO.setQuestion(question);
+        List<AnswerHelper> answerHelpers = new ArrayList<AnswerHelper>();
+        for(int i = 0; i < answers.size(); i++){
+            answerHelpers.add(new AnswerHelper(i,answers.get(i)));
+        }
+        pollDTO.setAnswers(answerHelpers);
+
         VoterGroupClient voterGroupClient = new VoterGroupClient();
         try {
             voterGroupClient.createPoll(pollDTO, loggedVoter.getVoterGroupDTO().getId());
@@ -71,7 +80,7 @@ public class NewPollController extends UniversalController implements Serializab
 
     public void createNew() {
         if(answers.contains(answer)) {
-            System.out.println("Už je uloženo");
+            addMessage(FacesMessage.SEVERITY_INFO, "Info", "Nelze přidat znova stejnou odpověd.");
         }
         else {
             answers.add(answer);
