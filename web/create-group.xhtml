@@ -7,16 +7,19 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
-    <title>Login Page</title>
+    <title>Create Group</title>
     <link rel="stylesheet" type="text/css" href="styleSheet.css"/>
+
+    <ui:include src="/socket-header.xhtml"/>
+
 </h:head>
 <h:body>
+
+    <ui:include src="/tabMenu.xhtml"/>
 
     <p:growl id="growl" sticky="true" showDetail="true"/>
 
     <h:form>
-        <ui:include src="/tabMenu.xhtml"/>
-
 
         <div>
             <p:panelGrid columns="2">

@@ -29,12 +29,11 @@ import org.primefaces.push.EventBusFactory;
 public class QueueConsumer extends EndPoint implements Runnable, Consumer{
 
     public QueueConsumer() throws IOException{
-        super("hello");
+        super("hlasovani");
     }
 
     @PostConstruct
     public void init(){
-        System.out.println("lol");
         this.run();
     }
 
@@ -73,7 +72,7 @@ public class QueueConsumer extends EndPoint implements Runnable, Consumer{
         String message = (String) SerializationUtils.deserialize(body);
 
         EventBus eventBus = EventBusFactory.getDefault().eventBus();
-        eventBus.publish("/pokus", "ahoj");
+        eventBus.publish("/hlasovani", message);
 
     }
 

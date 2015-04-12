@@ -1,32 +1,37 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
-                xmlns:f="http://xmlns.jcp.org/jsf/core">
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
 
+    <p:growl widgetVar="growlWV" />
 
-        <p:growl id="messages"/>
+    <p:socket onMessage="handleMessage" channel="/hlasovani" />
+    <p:growl id="messages"/>
+    <h:form>
 
         <p:menubar>
             <p:submenu label="Group" icon="ui-icon-document">
-                <p:menuitem value="Create" url="/create-group.xhtml" />
-                <p:separator />
-                <p:menuitem value="Supervised" ajax="false" outcome="supervisedGroups" />
-                <p:separator />
-                <p:menuitem value="Join" ajax="false" outcome="registerGroups" />
-                <p:separator />
-                <p:menuitem value="Leave" ajax="false" outcome="unregisterGroups" />
+                <p:menuitem value="Create" url="/create-group.xhtml"/>
+                <p:separator/>
+                <p:menuitem value="Supervised" ajax="false" outcome="supervisedGroups"/>
+                <p:separator/>
+                <p:menuitem value="Join" ajax="false" outcome="registerGroups"/>
+                <p:separator/>
+                <p:menuitem value="Leave" ajax="false" outcome="unregisterGroups"/>
             </p:submenu>
 
             <p:submenu label="Polls" icon="ui-icon-document">
-                <p:menuitem value="Vote" ajax="false" outcome="vote" />
-                <p:separator />
-                <p:menuitem value="Voted" ajax="false" outcome="voted" />
-                <p:separator />
-                <p:menuitem value="Supervised" ajax="false" outcome="supervised" />
+                <p:menuitem value="Vote" ajax="false" outcome="vote"/>
+                <p:separator/>
+                <p:menuitem value="Voted" ajax="false" outcome="voted"/>
+                <p:separator/>
+                <p:menuitem value="Supervised" ajax="false" outcome="supervised"/>
             </p:submenu>
 
             <p:menuitem value="Logout" ajax="false" action="#{login.logout}" icon="ui-icon-extlink"/>
 
         </p:menubar>
+    </h:form>
 
 </ui:composition>

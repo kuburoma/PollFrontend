@@ -6,13 +6,15 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
-    <title>Login Page</title>
+    <title>Poll Result</title>
+
+    <ui:include src="/socket-header.xhtml"/>
 </h:head>
 <h:body>
 
-    <h:form>
+    <ui:include src="/tabMenu.xhtml"/>
 
-        <ui:include src="/tabMenu.xhtml"/>
+    <h:form>
 
         <p:growl id="msgs" showDetail="true"/>
 

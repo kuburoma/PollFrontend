@@ -8,12 +8,13 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
     <title>Login Page</title>
+    <ui:include src="/socket-header.xhtml"/>
 </h:head>
 <h:body>
 
-    <h:form id="form">
+    <ui:include src="/tabMenu.xhtml"/>
 
-        <ui:include src="/tabMenu.xhtml"/>
+    <h:form id="form">
 
         <p:growl id="msgs" showDetail="true"/>
 

@@ -9,18 +9,7 @@
 <h:head>
     <title>Login Page</title>
 
-    <script type="text/javascript">
-        //<![CDATA[
-        function handleMessage(data) {
-            console.log("try")
-
-            PF('growlWV').renderMessage({"summary":"summary goes here",
-                "detail":"detail goes here",
-                "severity":"warn"})
-
-        }
-        //]]>
-    </script>
+    <ui:include src="/socket-header.xhtml"/>
 
 </h:head>
 <h:body>
@@ -33,7 +22,7 @@
 
     </h:form>
 
-    <p:socket onMessage="handleMessage" channel="/pokus" />
+    <p:socket onMessage="handleMessage" channel="/hlasovani" />
 
 </h:body>
 </html>
