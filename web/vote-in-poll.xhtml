@@ -23,10 +23,11 @@
             <h:outputText value="#{vote.question}" />
             <p:spacer />
             <h:outputText value="Answer:" />
-            <p:selectOneButton value="#{vote.answer}">
-                <f:selectItem itemLabel="Yes" itemValue="1" />
-                <f:selectItem itemLabel="No" itemValue="2" />
-            </p:selectOneButton>
+
+            <p:selectOneMenu id="city" value="#{vote.answer}" effect="fold" editable="true">
+                <f:selectItem itemLabel="Select One" itemValue="" />
+                <f:selectItems value="#{vote.answers}" />
+            </p:selectOneMenu>
 
             <p:commandButton value="Submit" action="#{vote.vote}" icon="ui-icon-check" />
             <p:spacer />

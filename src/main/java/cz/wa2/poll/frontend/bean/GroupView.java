@@ -4,6 +4,7 @@ import cz.wa2.poll.frontend.dto.VoterGroupDTO;
 import cz.wa2.poll.frontend.exception.ClientException;
 import cz.wa2.poll.frontend.rest.VoterClient;
 import cz.wa2.poll.frontend.rest.VoterGroupClient;
+import org.glassfish.jersey.process.internal.RequestScoped;
 import org.primefaces.context.RequestContext;
 
 import javax.annotation.PostConstruct;
@@ -16,7 +17,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @ManagedBean(name="groupView")
-@ViewScoped
+@RequestScoped
 public class GroupView extends UniversalController implements Serializable {
 
     private List<VoterGroupDTO> voterGroupDTOs;
@@ -30,21 +31,27 @@ public class GroupView extends UniversalController implements Serializable {
         String path = ((HttpServletRequest) FacesContext.getCurrentInstance()
                 .getExternalContext().getRequest()).getRequestURI();
         if(path.equals("/supervised-groups.xhtml")){
+            System.out.println("supervised");
             voterGroupDTOs = voterClient.getSupervisedGroups(loggedVoter.getVoter().getId());
         }
-
-        VoterClient voterClient = new VoterClient();
-        voterGroupDTOs = loggedVoter.getVoterGroupDTOList();
+        if(path.equals("/unregister-group.xhtml")){
+            voterGroupDTOs = voterClient.getRegistredGroups(loggedVoter.getVoter().getId());
+            System.out.println("unregister");
+        }
+        if(path.equals("/register-group.xhtml")){
+            voterGroupDTOs = voterClient.getNotregistredGroups(loggedVoter.getVoter().getId());
+            System.out.println("register");
+        }
     }
 
     public String updateSelectedGroup(VoterGroupDTO voterGroupDTO){
         loggedVoter.setVoterGroupDTO(voterGroupDTO);
-        return "/group-voters.xhtml";
+        return "success";
     }
 
     public String createNewPoll(VoterGroupDTO voterGroupDTO){
         loggedVoter.setVoterGroupDTO(voterGroupDTO);
-        return "/new-poll.xhtml";
+        return "success";
     }
 
     public String unregisterFromGroup(VoterGroupDTO voterGroupDTO){
@@ -54,7 +61,7 @@ public class GroupView extends UniversalController implements Serializable {
         } catch (ClientException e) {
             e.printStackTrace();
         }
-        return "/unregister-group.xhtml";
+        return "success";
     }
 
     public String registerIntoGroup(VoterGroupDTO voterGroupDTO){
@@ -64,7 +71,7 @@ public class GroupView extends UniversalController implements Serializable {
         } catch (ClientException e) {
             e.printStackTrace();
         }
-        return "/register-group.xhtml";
+        return "success";
     }
 
     public List<VoterGroupDTO> getVoterGroupDTOs() {

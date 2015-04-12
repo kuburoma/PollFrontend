@@ -26,9 +26,14 @@
                 <h:outputText value="#{group.description}"/>
             </p:column>
 
-            <p:column headerText="Edit" style="width:32px">
-                <p:commandLink action="#{groupView.registerIntoGroup(group)}" ajax="false" styleClass="ui-icon ui-icon-search"/>
-                <p:commandButton value="Join Group" action="#{groupView.registerIntoGroup(group)}" icon="ui-icon-check"/>
+            <p:column headerText="Join" style="width:32px">
+                <p:commandLink value="Join" action="#{groupView.registerIntoGroup(group)}" styleClass="ui-icon ui-icon-plus" ajax="false" style="margin-left: auto;  margin-right: auto;">
+                    <p:confirm header="Confirmation" message="Do you want to join group?" icon="ui-icon-alert" />
+                </p:commandLink>
+                <p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
+                    <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                    <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                </p:confirmDialog>
             </p:column>
 
         </p:dataTable>

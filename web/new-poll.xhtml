@@ -5,59 +5,90 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <h:head>
-        <title>Login Page</title>
-    </h:head>
-    <h:body>
+<h:head>
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="styleSheet.css"/>
+</h:head>
+<h:body>
 
-       <h:form>
-           <p:panelGrid columns="2" style="position: absolute; top: 250px; left: 500px;">
-               <f:facet name="header">New poll</f:facet>
-               <h:outputText value="Name"/>
-               <p:inputText value="#{newPoll.name}"/>
-               <h:outputText value="Qusetion"/>
-               <p:inputText value="#{newPoll.question}"/>
-               <f:facet name="footer">
-                   <p:commandButton value="Create new poll" action="#{newPoll.createPoll}"/>
-               </f:facet>
-           </p:panelGrid>
-       </h:form>
+    <h:form id="form">
 
 
+        <p:panel id="panel" header="New poll" style="margin-bottom:20px" >
+            <p:messages id="msgs"/>
 
-        <h:form id="form">
-            <p:growl id="msgs" />
+            <p:panelGrid cellpadding="5">
 
-            <p:panel header="Create a answer" style="margin-bottom:20px">
-                <h:panelGrid columns="2" cellpadding="5">
-
-                    <h:outputLabel value="Answer : *" for="txt_author"></h:outputLabel>
-                    <p:inputText id="txt_author" value="#{newPoll.answer}"/>
-
-                    <p:commandButton id="btn_reset" value="Reset" type="reset"/>
-                    <p:commandButton id="btn_add" value="Add" update="books msgs @parent" action="#{newPoll.reinit}" >
-                        <p:collector value="#{newPoll.answer}" addTo="#{newPoll.answers}" unique="true"/>
-                    </p:commandButton>
-                </h:panelGrid>
-            </p:panel>
-
-            <p:outputPanel id="books">
-                <p:dataTable value="#{newPoll.answers}" var="answer" id="booksTable">
-
-                    <p:column headerText="Answer">
-                        <h:outputText value="#{answer}" />
+                <p:row>
+                    <p:column>
+                        <h:outputText value="Name :"/>
                     </p:column>
-
-                    <p:column headerText="Action">
-                        <p:commandLink value="Remove" update=":form:books" process=":form:books">
-                            <p:collector value="#{answer}" removeFrom="#{newPoll.answers}" unique="true"/>
-                        </p:commandLink>
+                    <p:column>
+                        <p:inputText id="name" value="#{newPoll.name}" required="true">
+                            <f:validateLength minimum="2"/>
+                        </p:inputText>
+                        <p:message for="name" display="icon"/>
                     </p:column>
+                    <p:column>
+                        <p:commandButton value="Save poll" update="panel" action="#{newPoll.createPoll}"/>
+                    </p:column>
+                </p:row>
 
-                </p:dataTable>
-            </p:outputPanel>
-        </h:form>
+                <p:row>
+                    <p:column>
+                        <h:outputText value="Question :"/>
+
+                    </p:column>
+                    <p:column>
+                        <p:inputText id="question" value="#{newPoll.question}" required="true">
+                            <f:validateLength minimum="2"/>
+                        </p:inputText>
+                        <p:message for="question" display="icon"/>
+                    </p:column>
+                    <p:column/>
+                </p:row>
+
+                <p:row>
+                    <p:column>
+                        <h:outputLabel value="Answer :" for="txt_author"></h:outputLabel>
+                    </p:column>
+                    <p:column>
+                        <p:inputText id="txt_author" value="#{newPoll.answer}"/>
+                    </p:column>
+                    <p:column>
+                        <p:commandButton id="btn_add" value="Add" update="books msgs @parent"
+                                         action="#{newPoll.reinit}">
+                            <p:collector value="#{newPoll.answer}" addTo="#{newPoll.answers}" unique="true"/>
+                        </p:commandButton>
+                    </p:column>
+                </p:row>
+
+                <p:row>
+                    <p:column colspan="3">
+                        <p:outputPanel id="books">
+                            <p:dataTable value="#{newPoll.answers}" var="answer" id="booksTable">
+
+                                <p:column headerText="Answer">
+                                    <h:outputText value="#{answer}"/>
+                                </p:column>
+
+                                <p:column headerText="Action">
+                                    <p:commandLink value="Remove" update=":form:books" process=":form:books">
+                                        <p:collector value="#{answer}" removeFrom="#{newPoll.answers}" unique="true"/>
+                                    </p:commandLink>
+                                </p:column>
+
+                            </p:dataTable>
+                        </p:outputPanel>
+                    </p:column>
+                </p:row>
+
+            </p:panelGrid>
+        </p:panel>
 
 
-    </h:body>
+    </h:form>
+
+
+</h:body>
 </html>

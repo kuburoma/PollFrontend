@@ -22,6 +22,7 @@ public class GroupVotersView extends UniversalController implements Serializable
     private List<VoterDTO> voterDTOs;
     private VoterGroupClient voterGroupClient = new VoterGroupClient();
     private Long votergroupId;
+    private VoterGroupDTO voterGroupDTO;
 
     @ManagedProperty(value="#{voter}")
     LoggedVoter loggedVoter;
@@ -31,10 +32,10 @@ public class GroupVotersView extends UniversalController implements Serializable
         try {
             votergroupId = loggedVoter.getVoterGroupDTO().getId();
             voterDTOs = voterGroupClient.getVoters(votergroupId);
+            voterGroupDTO = loggedVoter.getVoterGroupDTO();
         } catch (ClientException e) {
-            RequestContext.getCurrentInstance().update("growl");
-            FacesContext context = FacesContext.getCurrentInstance();
-            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", e.getMessage()));
+            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -64,5 +65,17 @@ public class GroupVotersView extends UniversalController implements Serializable
 
     public void setLoggedVoter(LoggedVoter loggedVoter) {
         this.loggedVoter = loggedVoter;
+    }
+
+    public void setVoterDTOs(List<VoterDTO> voterDTOs) {
+        this.voterDTOs = voterDTOs;
+    }
+
+    public VoterGroupDTO getVoterGroupDTO() {
+        return voterGroupDTO;
+    }
+
+    public void setVoterGroupDTO(VoterGroupDTO voterGroupDTO) {
+        this.voterGroupDTO = voterGroupDTO;
     }
 }

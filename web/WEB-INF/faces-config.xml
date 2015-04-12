@@ -17,6 +17,11 @@
             <to-view-id>/login.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>register</from-outcome>
+            <to-view-id>/register.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/create-group.xhtml</from-view-id>
@@ -27,5 +32,116 @@
             <redirect/>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/supervised-groups.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{groupView.updateSelectedGroup(group)}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/group-voters.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{groupView.createNewPoll(group)}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/new-poll.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/unregister-group.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{groupView.unregisterFromGroup(group)}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/unregister-group.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/register-group.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{groupView.registerIntoGroup(group)}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/register-group.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/new-poll.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{newPoll.createPoll}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/supervised-groups.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/voted-polls.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{pollView.results(poll)}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/vote-chart.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/supervised-polls.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{pollView.results(poll)}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/vote-chart.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/unvoted-polls.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{pollView.vote(poll)}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/vote-in-poll.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+    <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>createGroup</from-outcome>
+            <to-view-id>/create-group.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>supervisedGroups</from-outcome>
+            <to-view-id>/supervised-groups.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>registerGroups</from-outcome>
+            <to-view-id>/register-group.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>unregisterGroups</from-outcome>
+            <to-view-id>/unregister-group.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>vote</from-outcome>
+            <to-view-id>/unvoted-polls.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>voted</from-outcome>
+            <to-view-id>/voted-polls.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>logout</from-outcome>
+            <to-view-id>/login.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
 
 </faces-config>

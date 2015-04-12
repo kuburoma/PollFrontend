@@ -36,6 +36,12 @@ public class NewPollController extends UniversalController implements Serializab
     }
 
     public String createPoll(){
+        if(answers.size() < 2){
+            addMessage(FacesMessage.SEVERITY_WARN, "Nelze založit hlasování bez minimálně dvou odpovědí", "");
+            return null;
+        }
+
+
         PollDTO pollDTO = new PollDTO();
         pollDTO.setName(name);
         pollDTO.setQuestion(question);
@@ -51,7 +57,7 @@ public class NewPollController extends UniversalController implements Serializab
         } catch (ClientException e) {
             e.printStackTrace();
         }
-        return "/supervised-groups.xhtml";
+        return "success";
     }
 
     public LoggedVoter getLoggedVoter() {

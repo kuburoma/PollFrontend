@@ -1,6 +1,8 @@
 package cz.wa2.poll.frontend.bean;
 
+import cz.wa2.poll.frontend.dto.AnswerHelper;
 import cz.wa2.poll.frontend.dto.BallotDTO;
+import cz.wa2.poll.frontend.dto.PollDTO;
 import cz.wa2.poll.frontend.rest.PollClient;
 import org.primefaces.model.chart.PieChartModel;
 
@@ -15,7 +17,7 @@ import java.util.List;
 @ViewScoped
 public class VoteChartView {
 
-    @ManagedProperty(value="#{voter}")
+    @ManagedProperty(value = "#{voter}")
     LoggedVoter loggedVoter;
 
     private PollClient pollClient;
@@ -29,25 +31,38 @@ public class VoteChartView {
         int notVoted = 0;
         int yes = 0;
         int no = 0;
+        List<AnswerHelper> answerHelpers = loggedVoter.getPollDTO().getAnswers();
+        int[] votes = new int[answerHelpers.size()+1];
         Iterator<BallotDTO> it = ballotList.iterator();
-/*        while(it.hasNext()){
-            Long answer = it.next().getAnswer();
-            if(answer == 0L){
-                notVoted++;
+
+        while (it.hasNext()) {
+            Integer answer = it.next().getAnswer();
+            if(answer == null){
+                votes[votes.length-1] = votes[votes.length-1]+1;
             }
-            if(answer == 1L){
-                yes++;
-            }
-            if(answer == 2L){
-                no++;
-            }
-        }*/
+            votes[answer] = votes[answer]+1;
+        }
 
 
         chart = new PieChartModel();
-        chart.getData().put("Not Voted", notVoted);
-        chart.getData().put("Yes", yes);
-        chart.getData().put("No", no);
+        for(int i = 0; i < votes.length -1; i++){
+            for (AnswerHelper answerHelper: answerHelpers){
+                if(i == answerHelper.getId()){
+                    chart.getData().put(answerHelper.getAnswer(), votes[i]);
+                    break;
+                }
+            }
+
+
+        }
+
+        chart.getData().put("Not Voted", votes[votes.length-1]);
+
+        chart.setTitle("Votes");
+        chart.setLegendPosition("e");
+        chart.setFill(false);
+        chart.setShowDataLabels(true);
+        chart.setDiameter(150);
 
     }
 

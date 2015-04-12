@@ -16,7 +16,7 @@
 
         <p:growl id="msgs" showDetail="true"/>
 
-        <p:pieChart title="Votes" legendPosition="e" value="#{voteChart.chart}" style="width:400px;height:400px" />
+        <p:chart type="pie" title="Votes" legendPosition="e" model="#{voteChart.chart}" style="width:400px;height:400px"/>
 
     </h:form>
 </h:body>

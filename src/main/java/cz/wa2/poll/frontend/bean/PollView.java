@@ -10,6 +10,8 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 import java.util.List;
 
@@ -26,30 +28,29 @@ public class PollView extends UniversalController implements Serializable {
 
     @PostConstruct
     public void init() {
-        pollDTOs = loggedVoter.getPollDTOList();
+        String path = ((HttpServletRequest) FacesContext.getCurrentInstance()
+                .getExternalContext().getRequest()).getRequestURI();
+        if(path.equals("/unvoted-polls.xhtml")){
+            pollDTOs = voterClient.getNonvotedPolls(loggedVoter.getVoter().getId());
+        }
+        if(path.equals("/voted-polls.xhtml")){
+            pollDTOs = voterClient.getVotedPolls(loggedVoter.getVoter().getId());
+        }
+        if(path.equals("/supervised-polls.xhtml")){
+            pollDTOs = voterClient.getSupervisedPolls(loggedVoter.getVoter().getId());
+        }
     }
 
     public String vote(PollDTO pollDTO){
         loggedVoter.setPollDTO(pollDTO);
         loggedVoter.setBallotDTO(voterClient.getBallot(loggedVoter.getVoter().getId(), pollDTO.getId()));
-        return "/vote-in-poll.xhtml";
+        return "success";
     }
 
     public String results(PollDTO pollDTO){
         loggedVoter.setPollDTO(pollDTO);
-        return "/vote-chart.xhtml";
+        return "success";
     }
-
-    public String nonvotedPolls(VoterGroupDTO voterGroupDTO){
-        VoterGroupClient voterGroupClient = new VoterGroupClient();
-        try {
-            voterGroupClient.putVoterToVotergroup(voterGroupDTO.getId(), loggedVoter.getVoter().getId());
-        } catch (ClientException e) {
-            e.printStackTrace();
-        }
-        return "/register-group.xhtml";
-    }
-
 
     public List<PollDTO> getPollDTOs() {
         return pollDTOs;

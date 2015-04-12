@@ -10,17 +10,17 @@
             <p:submenu label="Group" icon="ui-icon-document">
                 <p:menuitem value="Create" url="/create-group.xhtml" />
                 <p:separator />
-                <p:menuitem value="Supervised" ajax="false" action="#{menu.supervisedGroups}" />
+                <p:menuitem value="Supervised" ajax="false" outcome="supervisedGroups" />
                 <p:separator />
-                <p:menuitem value="Join" ajax="false" action="#{menu.registerGroups}" />
+                <p:menuitem value="Join" ajax="false" outcome="registerGroups" />
                 <p:separator />
-                <p:menuitem value="Leave" ajax="false" action="#{menu.unregisterGroups}" />
+                <p:menuitem value="Leave" ajax="false" outcome="unregisterGroups" />
             </p:submenu>
 
             <p:submenu label="Polls" icon="ui-icon-document">
-                <p:menuitem value="Vote" ajax="false" action="#{menu.vote}" />
+                <p:menuitem value="Vote" ajax="false" outcome="vote" />
                 <p:separator />
-                <p:menuitem value="Voted" ajax="false" action="#{menu.voted}" />
+                <p:menuitem value="Voted" ajax="false" outcome="voted" />
             </p:submenu>
 
             <p:menuitem value="Logout" ajax="false" action="#{login.logout}" icon="ui-icon-extlink"/>

@@ -32,7 +32,7 @@ public class GroupController extends UniversalController {
             RequestContext.getCurrentInstance().update("growl");
             FacesContext context = FacesContext.getCurrentInstance();
             context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Skupina byla úspěšně vytvořena"));
-            return "/supervised-groups.xhtml";
+            return "success";
         } catch (ClientException e) {
             RequestContext.getCurrentInstance().update("growl");
             FacesContext context = FacesContext.getCurrentInstance();

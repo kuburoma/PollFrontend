@@ -37,8 +37,7 @@ public class LoginController extends UniversalController implements Serializable
 
     public String logout() {
         loggedVoter.setVoter(null);
-        System.out.println("Odhlaš");
-        return "login.xhtml";
+        return "logout";
     }
 
     public String getEmail() {

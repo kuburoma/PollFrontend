@@ -8,25 +8,53 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
     <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="styleSheet.css"/>
 </h:head>
 <h:body>
 
     <p:growl id="growl" sticky="true" showDetail="true"/>
 
     <h:form>
-        <ui:include src="/tabMenu.xhtml" />
+        <ui:include src="/tabMenu.xhtml"/>
 
 
-        <p:panelGrid columns="2" style="position: absolute; top: 250px; left: 500px;">
-            <f:facet name="header">Create group</f:facet>
-            <h:outputText value="Name"/>
-            <p:inputText value="#{createGroup.name}"/>
-            <h:outputText value="Description"/>
-            <p:inputText value="#{createGroup.description}"/>
-            <f:facet name="footer">
-                <p:commandButton value="Create" action="#{createGroup.createGroup}"/>
-            </f:facet>
-        </p:panelGrid>
+        <div>
+            <p:panelGrid columns="2">
+                <f:facet name="header">
+
+                    <p:column colspan="2">
+                        Create group
+                    </p:column>
+
+                </f:facet>
+
+                <p:column>
+                    <h:outputText value="Name"/>
+                </p:column>
+                <p:column>
+                    <p:inputText value="#{createGroup.name}"/>
+                </p:column>
+
+
+                <p:column>
+                    <h:outputText value="Description"/>
+                </p:column>
+                <p:column>
+                    <p:inputTextarea rows="5" cols="30" value="#{createGroup.description}" counter="display"
+                                     maxlength="144" counterTemplate="{0} characters remaining."
+                                     autoResize="false"/>
+                    <h:outputText id="display"/>
+                </p:column>
+
+                <f:facet name="footer">
+
+                    <p:column colspan="2">
+                        <p:commandButton value="Create" action="#{createGroup.createGroup}"/>
+                    </p:column>
+
+                </f:facet>
+            </p:panelGrid>
+        </div>
     </h:form>
 </h:body>
 </html>
