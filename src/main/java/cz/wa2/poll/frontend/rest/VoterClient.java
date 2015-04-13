@@ -17,10 +17,14 @@ import java.util.List;
 
 public class VoterClient {
 
-    Client restClient = ClientBuilder.newClient();
-    WebTarget target = restClient.target("http://localhost:8080/rest/voter");
+    WebTarget target;
 
     final static Logger logger = Logger.getLogger(VoterClient.class);
+
+    public VoterClient(String address) {
+        target = ClientStore.getClient().target(address).path("/rest/voter");
+    }
+
 
     // @GET
     // /voter/login

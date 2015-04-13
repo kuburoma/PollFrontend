@@ -16,6 +16,8 @@ import java.util.List;
 @RequestScoped
 public class VoteView extends UniversalController implements Serializable {
 
+    BallotClient ballotClient;
+
     @ManagedProperty(value="#{voter}")
     LoggedVoter loggedVoter;
 
@@ -114,7 +116,7 @@ public class VoteView extends UniversalController implements Serializable {
             }
         }
 
-        BallotClient ballotClient = new BallotClient();
+        ballotClient = new BallotClient(loggedVoter.getRestServerAddress());
         ballotClient.updateBallot(ballotDTO);
         return "/unvoted-polls.xhtml";
     }

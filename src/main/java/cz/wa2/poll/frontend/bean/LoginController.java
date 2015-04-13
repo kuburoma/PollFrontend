@@ -15,6 +15,8 @@ import java.io.Serializable;
 @RequestScoped
 public class LoginController extends UniversalController implements Serializable{
 
+    private VoterClient voterClient;
+
     @ManagedProperty(value = "#{voter}")
     LoggedVoter loggedVoter;
 
@@ -22,8 +24,8 @@ public class LoginController extends UniversalController implements Serializable
     private String password;
 
     public String login() {
-        VoterClient vc = new VoterClient();
-        VoterDTO vd = vc.authorizeVoter(email, password);
+        voterClient = new VoterClient(loggedVoter.getRestServerAddress());
+        VoterDTO vd = voterClient.authorizeVoter(email, password);
         if (vd != null) {
             loggedVoter.setVoter(vd);
             return "success";

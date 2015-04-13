@@ -20,7 +20,7 @@ import java.util.List;
 public class GroupVotersView extends UniversalController implements Serializable {
 
     private List<VoterDTO> voterDTOs;
-    private VoterGroupClient voterGroupClient = new VoterGroupClient();
+    private VoterGroupClient voterGroupClient;
     private Long votergroupId;
     private VoterGroupDTO voterGroupDTO;
 
@@ -30,6 +30,7 @@ public class GroupVotersView extends UniversalController implements Serializable
     @PostConstruct
     public void init() {
         try {
+            voterGroupClient = new VoterGroupClient(loggedVoter.getRestServerAddress());
             votergroupId = loggedVoter.getVoterGroupDTO().getId();
             voterDTOs = voterGroupClient.getVoters(votergroupId);
             voterGroupDTO = loggedVoter.getVoterGroupDTO();

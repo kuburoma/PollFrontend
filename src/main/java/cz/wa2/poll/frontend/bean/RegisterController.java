@@ -8,6 +8,7 @@ import org.primefaces.context.RequestContext;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import java.io.Serializable;
@@ -17,6 +18,11 @@ import java.io.Serializable;
 public class RegisterController extends UniversalController implements Serializable {
 
     final static Logger logger = Logger.getLogger(RegisterController.class);
+
+    VoterClient voterClient;
+
+    @ManagedProperty(value = "#{voter}")
+    LoggedVoter loggedVoter;
 
     private String firstName;
     private String lastName;
@@ -35,7 +41,7 @@ public class RegisterController extends UniversalController implements Serializa
         voter.setEmail(email);
         voter.setPassword(password);
 
-        VoterClient voterClient = new VoterClient();
+        voterClient = new VoterClient(loggedVoter.getRestServerAddress());
 
         try {
             voterClient.saveVoter(voter);

@@ -22,6 +22,7 @@ public class LoggedVoter extends UniversalController implements Serializable {
     private List<VoterGroupDTO> voterGroupDTOList;
     private List<PollDTO> pollDTOList;
     private QueueConsumer queueConsumer;
+    private String restServerAddress;
 
     public QueueConsumer getQueueConsumer() {
         return queueConsumer;
@@ -77,5 +78,13 @@ public class LoggedVoter extends UniversalController implements Serializable {
 
     public void setBallotDTO(BallotDTO ballotDTO) {
         this.ballotDTO = ballotDTO;
+    }
+
+    public String getRestServerAddress() {
+        return restServerAddress;
+    }
+
+    public void setRestServerAddress(String restServerAddress) {
+        this.restServerAddress = restServerAddress;
     }
 }

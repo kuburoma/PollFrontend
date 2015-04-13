@@ -20,6 +20,8 @@ import java.util.Map;
 @ViewScoped
 public class NewPollController extends UniversalController implements Serializable {
 
+    VoterGroupClient voterGroupClient;
+
     @ManagedProperty(value="#{voter}")
     LoggedVoter loggedVoter;
 
@@ -32,6 +34,7 @@ public class NewPollController extends UniversalController implements Serializab
     public void init() {
         answer = "";
         answers = new ArrayList<String>();
+        voterGroupClient = new VoterGroupClient(loggedVoter.getRestServerAddress());
 
     }
 
@@ -51,7 +54,6 @@ public class NewPollController extends UniversalController implements Serializab
         }
         pollDTO.setAnswers(answerHelpers);
 
-        VoterGroupClient voterGroupClient = new VoterGroupClient();
         try {
             voterGroupClient.createPoll(pollDTO, loggedVoter.getVoterGroupDTO().getId());
         } catch (ClientException e) {

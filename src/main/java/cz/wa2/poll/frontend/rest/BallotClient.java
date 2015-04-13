@@ -13,10 +13,13 @@ import javax.ws.rs.core.Response;
 
 public class BallotClient {
 
-    Client restClient = ClientBuilder.newClient();
-    WebTarget target = restClient.target("http://localhost:8080/rest/ballot");
+    WebTarget target;
 
     final static Logger logger = Logger.getLogger(BallotClient.class);
+
+    public BallotClient(String address) {
+        target = ClientStore.getClient().target(address).path("/rest/ballot");
+    }
 
     // @PUT
     public void updateBallot(BallotDTO ballotDTO) {

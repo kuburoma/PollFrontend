@@ -1,7 +1,6 @@
 package cz.wa2.poll.frontend.rest;
 
 import cz.wa2.poll.frontend.dto.BallotDTO;
-import cz.wa2.poll.frontend.dto.PollDTO;
 import cz.wa2.poll.frontend.exception.ClientException;
 import org.apache.log4j.Logger;
 
@@ -15,10 +14,13 @@ import java.util.List;
 
 public class PollClient {
 
-    Client restClient = ClientBuilder.newClient();
-    WebTarget target = restClient.target("http://localhost:8080/rest/poll");
+    WebTarget target;
 
     final static Logger logger = Logger.getLogger(PollClient.class);
+
+    public PollClient(String address) {
+        target = ClientStore.getClient().target(address).path("/rest/poll");
+    }
 
     // @GET
     // @Path(value = "/{id}/ballot")

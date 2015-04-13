@@ -19,24 +19,22 @@ public class GroupController extends UniversalController {
     @ManagedProperty(value = "#{voter}")
     LoggedVoter loggedVoter;
 
+    VoterClient voterClient;
+
     private String name;
     private String description;
 
     public String createGroup() {
+        voterClient = new VoterClient(loggedVoter.getRestServerAddress());
         VoterGroupDTO voterGroupDTO = new VoterGroupDTO();
         voterGroupDTO.setName(name);
         voterGroupDTO.setDescription(description);
-        VoterClient voterGroupClient = new VoterClient();
         try {
-            voterGroupClient.saveVoterGroup(loggedVoter.getVoter().getId(), voterGroupDTO);
-            RequestContext.getCurrentInstance().update("growl");
-            FacesContext context = FacesContext.getCurrentInstance();
-            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Skupina byla úspěšně vytvořena"));
+            voterClient.saveVoterGroup(loggedVoter.getVoter().getId(), voterGroupDTO);
+            addMessage(FacesMessage.SEVERITY_INFO, "Info", "Skupina byla úspěšně vytvořena");
             return "success";
         } catch (ClientException e) {
-            RequestContext.getCurrentInstance().update("growl");
-            FacesContext context = FacesContext.getCurrentInstance();
-            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", e.getMessage()));
+            addMessage(FacesMessage.SEVERITY_ERROR, "Error", e.getMessage());
             return "";
         }
     }

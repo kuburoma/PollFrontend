@@ -21,6 +21,10 @@
                <p:password value="#{login.password}"/>
                <f:facet name="footer">
                    <p:commandButton value="Login" action="#{login.login}"/>
+                   <p:selectOneMenu value="#{voter.restServerAddress}" style="width:125px">
+                       <f:selectItem itemLabel="Server 1" itemValue="http://localhost:8080" />
+                       <f:selectItem itemLabel="Server 2" itemValue="http://localhost:8081" />
+                   </p:selectOneMenu>
                    <p:link outcome="register" value="Register" style="float: right;"/>
                </f:facet>
 

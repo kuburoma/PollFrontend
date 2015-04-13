@@ -22,8 +22,8 @@ import java.util.List;
 public class PollView extends UniversalController implements Serializable {
 
 
-    private VoterClient voterClient = new VoterClient();
-    private PollClient pollClient = new PollClient();
+    private VoterClient voterClient;
+    private PollClient pollClient;
     private List<PollDTO> pollDTOs;
 
     @ManagedProperty(value="#{voter}")
@@ -31,6 +31,9 @@ public class PollView extends UniversalController implements Serializable {
 
     @PostConstruct
     public void init() {
+        voterClient = new VoterClient(loggedVoter.getRestServerAddress());
+        pollClient = new PollClient(loggedVoter.getRestServerAddress());
+
         String path = ((HttpServletRequest) FacesContext.getCurrentInstance()
                 .getExternalContext().getRequest()).getRequestURI();
         if(path.equals("/unvoted-polls.xhtml")){

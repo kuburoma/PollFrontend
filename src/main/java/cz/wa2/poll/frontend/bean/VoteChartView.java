@@ -26,7 +26,7 @@ public class VoteChartView {
     @PostConstruct
     public void init() {
 
-        pollClient = new PollClient();
+        pollClient = new PollClient(loggedVoter.getRestServerAddress());
         List<BallotDTO> ballotList = pollClient.getPollBallots(loggedVoter.getPollDTO().getId());
         int notVoted = 0;
         int yes = 0;

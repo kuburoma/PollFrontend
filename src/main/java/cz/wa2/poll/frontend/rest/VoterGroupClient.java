@@ -14,10 +14,13 @@ import java.util.List;
 
 public class VoterGroupClient {
 
-    Client restClient = ClientBuilder.newClient();
-    WebTarget target = restClient.target("http://localhost:8080/rest/votergroup");
+    WebTarget target;
 
     final static Logger logger = Logger.getLogger(VoterClient.class);
+
+    public VoterGroupClient(String address) {
+        target = ClientStore.getClient().target(address).path("/rest/votergroup");
+    }
 
     // @GET
     // @Path("/{id}/voters")

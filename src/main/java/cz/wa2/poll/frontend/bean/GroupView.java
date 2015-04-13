@@ -24,10 +24,14 @@ public class GroupView extends UniversalController implements Serializable {
 
     @ManagedProperty(value="#{voter}")
     LoggedVoter loggedVoter;
-    VoterClient voterClient = new VoterClient();
+    VoterClient voterClient;
+    VoterGroupClient voterGroupClient;
 
     @PostConstruct
     public void init() {
+        voterClient = new VoterClient(loggedVoter.getRestServerAddress());
+        voterGroupClient = new VoterGroupClient(loggedVoter.getRestServerAddress());
+
         String path = ((HttpServletRequest) FacesContext.getCurrentInstance()
                 .getExternalContext().getRequest()).getRequestURI();
         if(path.equals("/supervised-groups.xhtml")){
@@ -55,7 +59,6 @@ public class GroupView extends UniversalController implements Serializable {
     }
 
     public String unregisterFromGroup(VoterGroupDTO voterGroupDTO){
-        VoterGroupClient voterGroupClient = new VoterGroupClient();
         try {
             voterGroupClient.deleteVoterFromVotergroup(voterGroupDTO.getId(), loggedVoter.getVoter().getId());
         } catch (ClientException e) {
@@ -65,7 +68,6 @@ public class GroupView extends UniversalController implements Serializable {
     }
 
     public String registerIntoGroup(VoterGroupDTO voterGroupDTO){
-        VoterGroupClient voterGroupClient = new VoterGroupClient();
         try {
             voterGroupClient.putVoterToVotergroup(voterGroupDTO.getId(), loggedVoter.getVoter().getId());
         } catch (ClientException e) {
@@ -75,7 +77,6 @@ public class GroupView extends UniversalController implements Serializable {
     }
 
     public String deleteVoterGroup(VoterGroupDTO voterGroupDTO){
-        VoterGroupClient voterGroupClient = new VoterGroupClient();
         try {
             voterGroupClient.deleteVoterGroup(voterGroupDTO.getId());
         } catch (ClientException e) {
