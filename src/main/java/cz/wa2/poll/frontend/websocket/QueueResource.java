@@ -9,7 +9,6 @@ public class QueueResource {
 
     @OnMessage(encoders = {JSONEncoder.class})
     public String onMessage(String message) {
-        System.out.println("uprava");
         return message;
     }
 }

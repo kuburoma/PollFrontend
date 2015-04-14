@@ -35,16 +35,13 @@ public class GroupView extends UniversalController implements Serializable {
         String path = ((HttpServletRequest) FacesContext.getCurrentInstance()
                 .getExternalContext().getRequest()).getRequestURI();
         if(path.equals("/supervised-groups.xhtml")){
-            System.out.println("supervised");
             voterGroupDTOs = voterClient.getSupervisedGroups(loggedVoter.getVoter().getId());
         }
         if(path.equals("/unregister-group.xhtml")){
             voterGroupDTOs = voterClient.getRegistredGroups(loggedVoter.getVoter().getId());
-            System.out.println("unregister");
         }
         if(path.equals("/register-group.xhtml")){
             voterGroupDTOs = voterClient.getNotregistredGroups(loggedVoter.getVoter().getId());
-            System.out.println("register");
         }
     }
 

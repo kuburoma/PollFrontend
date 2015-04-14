@@ -57,7 +57,8 @@ public class NewPollController extends UniversalController implements Serializab
         try {
             voterGroupClient.createPoll(pollDTO, loggedVoter.getVoterGroupDTO().getId());
         } catch (ClientException e) {
-            e.printStackTrace();
+            addMessage(FacesMessage.SEVERITY_WARN, e.getMessage(), "");
+            return null;
         }
         return "success";
     }

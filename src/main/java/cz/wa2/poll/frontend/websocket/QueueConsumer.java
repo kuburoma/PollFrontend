@@ -68,7 +68,6 @@ public class QueueConsumer extends EndPoint implements Runnable, Consumer{
     public void handleDelivery(String consumerTag, Envelope env,
                                BasicProperties props, byte[] body) throws IOException {
 
-        System.out.println("Odesílám zprávu");
         String message = (String) SerializationUtils.deserialize(body);
 
         EventBus eventBus = EventBusFactory.getDefault().eventBus();

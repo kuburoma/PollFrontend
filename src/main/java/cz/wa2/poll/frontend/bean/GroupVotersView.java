@@ -36,7 +36,6 @@ public class GroupVotersView extends UniversalController implements Serializable
             voterGroupDTO = loggedVoter.getVoterGroupDTO();
         } catch (ClientException e) {
             e.printStackTrace();
-            System.out.println(e.getMessage());
         }
     }
 
