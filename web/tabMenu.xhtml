@@ -32,6 +32,10 @@
 
             <p:menuitem value="Logout" ajax="false" action="#{login.logout}" icon="ui-icon-extlink"/>
 
+            <f:facet name="options">
+                <p:outputLabel style="margin-right:10px" value="#{voter.voter.lastName}"/>
+            </f:facet>
+
         </p:menubar>
     </h:form>
 

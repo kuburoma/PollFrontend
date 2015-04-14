@@ -13,7 +13,7 @@
         <p:growl id="growl" sticky="true" showDetail="true"/>
 
        <h:form>
-           <p:panelGrid columns="2" style="position: absolute; top: 250px; left: 500px;">
+           <p:panelGrid columns="2" style="margin-left: auto;  margin-right: auto;  width: 30%;">
                <f:facet name="header">Login Form</f:facet>
                <h:outputText value="Email"/>
                <p:inputText value="#{login.email}"/>
@@ -21,7 +21,13 @@
                <p:password value="#{login.password}"/>
                <f:facet name="footer">
                    <p:commandButton value="Login" action="#{login.login}"/>
+                   <p:selectOneMenu value="#{voter.restServerAddress}" style="width:125px">
+                       <f:selectItem itemLabel="Server 1" itemValue="http://localhost:8080" />
+                       <f:selectItem itemLabel="Server 2" itemValue="http://localhost:8081" />
+                   </p:selectOneMenu>
+                   <p:link outcome="register" value="Register" style="float: right;"/>
                </f:facet>
+
            </p:panelGrid>
        </h:form>
     </h:body>

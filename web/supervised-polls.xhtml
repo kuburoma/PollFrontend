@@ -19,7 +19,7 @@
 
         <p:growl id="msgs" showDetail="true"/>
 
-        <p:dataTable var="poll" value="#{pollView.pollDTOs}">
+        <p:dataTable var="poll" value="#{pollView.pollDTOs}" style="margin-left: auto; margin-right: auto; margin-top: 10px; width: 80%;">
 
             <p:column headerText="Name" style="width:60px">
                 <h:outputText value="#{poll.name}"/>
