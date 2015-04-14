@@ -164,6 +164,24 @@ public class VoterClient {
         }
     }
 
+    public void updateVoter(VoterDTO voterDTO) throws ClientException {
+        Invocation.Builder invocationBuilder = target.request(MediaType.APPLICATION_JSON_TYPE);
+        Response response = invocationBuilder.put(Entity.entity(voterDTO, MediaType.APPLICATION_JSON));
+        int status = response.getStatus();
+
+        if (logger.isDebugEnabled()) {
+            logger.debug("updateVoter.status = " + status);
+        }
+
+        if (status == 200) {
+            List<VoterGroupDTO> voters = response.readEntity(new GenericType<List<VoterGroupDTO>>() {
+            });
+            response.close();
+        }else{
+            throw new ClientException((String)response.readEntity(String.class));
+        }
+    }
+
     // @GET
     // @Path(value = "/{id}/nonvoted_polls")
     public List<PollDTO> getNonvotedPolls(Long id) {

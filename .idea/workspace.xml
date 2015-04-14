@@ -2,27 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df19607b-82c0-4381-be76-e3c0f6e76e88" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\WORK\PollFrontend\out\artifacts\PollFrontEnd_war_exploded\WEB-INF\lib\primefaces-5.0.jar" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/PollFrontEnd_war_exploded/WEB-INF/classes/cz/wa2/poll/frontend/bean/LoginController.class" afterPath="$PROJECT_DIR$/out/artifacts/PollFrontEnd_war_exploded/WEB-INF/classes/cz/wa2/poll/frontend/bean/LoginController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/cz/wa2/poll/frontend/bean/LoginController.class" afterPath="$PROJECT_DIR$/target/classes/cz/wa2/poll/frontend/bean/LoginController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/PollFrontEnd_war_exploded/WEB-INF/classes/cz/wa2/poll/frontend/bean/RegisterController.class" afterPath="$PROJECT_DIR$/out/artifacts/PollFrontEnd_war_exploded/WEB-INF/classes/cz/wa2/poll/frontend/bean/RegisterController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/cz/wa2/poll/frontend/bean/RegisterController.class" afterPath="$PROJECT_DIR$/target/classes/cz/wa2/poll/frontend/bean/RegisterController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/PollFrontEnd_war_exploded/WEB-INF/classes/cz/wa2/poll/frontend/dto/VoterDTO.class" afterPath="$PROJECT_DIR$/out/artifacts/PollFrontEnd_war_exploded/WEB-INF/classes/cz/wa2/poll/frontend/dto/VoterDTO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/cz/wa2/poll/frontend/dto/VoterDTO.class" afterPath="$PROJECT_DIR$/target/classes/cz/wa2/poll/frontend/dto/VoterDTO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/MANIFEST.MF" afterPath="$PROJECT_DIR$/target/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/create-group.xhtml" afterPath="$PROJECT_DIR$/web/create-group.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/PollFrontEnd_war_exploded/WEB-INF/faces-config.xml" afterPath="$PROJECT_DIR$/out/artifacts/PollFrontEnd_war_exploded/WEB-INF/faces-config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/PollFrontEnd_war_exploded/login.xhtml" afterPath="$PROJECT_DIR$/out/artifacts/PollFrontEnd_war_exploded/login.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/register-group.xhtml" afterPath="$PROJECT_DIR$/web/register-group.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/PollFrontEnd_war_exploded/register.xhtml" afterPath="$PROJECT_DIR$/out/artifacts/PollFrontEnd_war_exploded/register.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/supervised-groups.xhtml" afterPath="$PROJECT_DIR$/web/supervised-groups.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/supervised-polls.xhtml" afterPath="$PROJECT_DIR$/web/supervised-polls.xhtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/update-voter.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/bean/RegisterController.java" afterPath="$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/bean/RegisterController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/rest/VoterClient.java" afterPath="$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/rest/VoterClient.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/faces-config.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/faces-config.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/register.xhtml" afterPath="$PROJECT_DIR$/web/register.xhtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/tabMenu.xhtml" afterPath="$PROJECT_DIR$/web/tabMenu.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/unregister-group.xhtml" afterPath="$PROJECT_DIR$/web/unregister-group.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/unvoted-polls.xhtml" afterPath="$PROJECT_DIR$/web/unvoted-polls.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/vote-chart.xhtml" afterPath="$PROJECT_DIR$/web/vote-chart.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/voted-polls.xhtml" afterPath="$PROJECT_DIR$/web/voted-polls.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/PollFrontEnd_war_exploded/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/out/artifacts/PollFrontEnd_war_exploded/WEB-INF/web.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PollFrontEnd.iws" />
@@ -50,12 +35,60 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="register.xhtml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/register.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.22567287" vertical-offset="248" max-vertical-offset="731">
+              <caret line="21" column="61" selection-start-line="21" selection-start-column="61" selection-end-line="21" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="update-voter.xhtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/update-voter.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="680">
+              <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="tabMenu.xhtml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/tabMenu.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.653846" vertical-offset="240" max-vertical-offset="799">
-              <caret line="35" column="86" selection-start-line="35" selection-start-column="86" selection-end-line="35" selection-end-column="86" />
+            <state vertical-scroll-proportion="-5.1538463" vertical-offset="121" max-vertical-offset="850">
+              <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="faces-config.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/WEB-INF/faces-config.xml">
+          <provider editor-type-id="com.intellij.jsf.yfilesGraph.editor.FacesNavigationFileEditorProvider">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.866667" vertical-offset="2136" max-vertical-offset="3281">
+              <caret line="136" column="37" selection-start-line="136" selection-start-column="26" selection-end-line="136" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RegisterController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/bean/RegisterController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="171" max-vertical-offset="1921">
+              <caret line="35" column="24" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+              <folding>
+                <element signature="e#3730#3731#0" expanded="true" />
+                <element signature="e#3764#3765#0" expanded="true" />
+                <element signature="e#3823#3824#0" expanded="true" />
+                <element signature="e#3869#3870#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -64,58 +97,30 @@
         <entry file="file://$PROJECT_DIR$/web/create-group.xhtml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-11.269231" vertical-offset="81" max-vertical-offset="1139">
-              <caret line="22" column="100" selection-start-line="22" selection-start-column="100" selection-end-line="22" selection-end-column="100" />
+              <caret line="22" column="101" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="101" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="supervised-groups.xhtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/supervised-groups.xhtml">
+      <file leaf-file-name="GroupController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/bean/GroupController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.115385" vertical-offset="17" max-vertical-offset="952">
-              <caret line="18" column="145" selection-start-line="18" selection-start-column="69" selection-end-line="18" selection-end-column="145" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1445">
+              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="40" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="supervised-polls.xhtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/supervised-polls.xhtml">
+      <file leaf-file-name="VoterClient.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/rest/VoterClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.269231" vertical-offset="168" max-vertical-offset="935">
-              <caret line="21" column="137" selection-start-line="21" selection-start-column="137" selection-end-line="21" selection-end-column="137" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="unregister-group.xhtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/unregister-group.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.9615383" vertical-offset="185" max-vertical-offset="850">
-              <caret line="20" column="145" selection-start-line="20" selection-start-column="145" selection-end-line="20" selection-end-column="145" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="unvoted-polls.xhtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/unvoted-polls.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.230769" vertical-offset="5" max-vertical-offset="731">
-              <caret line="19" column="137" selection-start-line="19" selection-start-column="61" selection-end-line="19" selection-end-column="137" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="voted-polls.xhtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/voted-polls.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.153846" vertical-offset="117" max-vertical-offset="731">
-              <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="35" max-vertical-offset="3842">
+              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+              <folding>
+                <element signature="e#730#731#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -123,28 +128,18 @@
       <file leaf-file-name="register-group.xhtml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/register-group.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.423077" vertical-offset="34" max-vertical-offset="867">
-              <caret line="21" column="145" selection-start-line="21" selection-start-column="69" selection-end-line="21" selection-end-column="145" />
+            <state vertical-scroll-proportion="-8.5" vertical-offset="34" max-vertical-offset="867">
+              <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vote-chart.xhtml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="vote-chart.xhtml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/vote-chart.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.81524247" vertical-offset="55" max-vertical-offset="527">
+            <state vertical-scroll-proportion="-13.576923" vertical-offset="55" max-vertical-offset="527">
               <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VoteChartView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/bean/VoteChartView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="667" max-vertical-offset="1292">
-              <caret line="62" column="34" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -158,7 +153,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/websocket/QeueueConsumer.java" />
         <option value="$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/websocket/EndPoint.java" />
         <option value="$PROJECT_DIR$/web/index.xhtml" />
         <option value="$PROJECT_DIR$/web/socket.xhtml" />
@@ -181,14 +175,11 @@
         <option value="$PROJECT_DIR$/web/voter.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/bean/LoggedVoter.java" />
         <option value="$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/rest/ClientStore.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/rest/VoterClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/rest/BallotClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/rest/PollClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/bean/PollView.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/bean/RegisterController.java" />
         <option value="$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/bean/VoteView.java" />
         <option value="$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/bean/LoginController.java" />
-        <option value="$PROJECT_DIR$/web/register.xhtml" />
         <option value="$PROJECT_DIR$/web/login.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/bean/NewPollController.java" />
         <option value="$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/bean/GroupView.java" />
@@ -196,10 +187,8 @@
         <option value="$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/websocket/QueueConsumer.java" />
         <option value="$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/websocket/QueueResource.java" />
         <option value="$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/rest/VoterGroupClient.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/faces-config.xml" />
         <option value="$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/bean/GroupController.java" />
         <option value="$PROJECT_DIR$/web/group-voters.xhtml" />
-        <option value="$PROJECT_DIR$/web/tabMenu.xhtml" />
         <option value="$PROJECT_DIR$/web/supervised-groups.xhtml" />
         <option value="$PROJECT_DIR$/web/supervised-polls.xhtml" />
         <option value="$PROJECT_DIR$/web/unregister-group.xhtml" />
@@ -209,6 +198,12 @@
         <option value="$PROJECT_DIR$/web/voted-polls.xhtml" />
         <option value="$PROJECT_DIR$/web/create-group.xhtml" />
         <option value="$PROJECT_DIR$/web/vote-chart.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/rest/VoterClient.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/faces-config.xml" />
+        <option value="$PROJECT_DIR$/web/tabMenu.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/bean/RegisterController.java" />
+        <option value="$PROJECT_DIR$/web/update-voter.xhtml" />
+        <option value="$PROJECT_DIR$/web/register.xhtml" />
       </list>
     </option>
   </component>
@@ -926,7 +921,7 @@
       <workItem from="1428765807263" duration="16112000" />
       <workItem from="1428833315737" duration="21168000" />
       <workItem from="1428935208607" duration="6694000" />
-      <workItem from="1429011143247" duration="5414000" />
+      <workItem from="1429011143247" duration="7766000" />
     </task>
     <task id="LOCAL-00001" summary="Lze se zaregistrovat ke skupine, nechat se z ní vyhodit.">
       <created>1428237934620</created>
@@ -982,11 +977,17 @@
       <option name="project" value="LOCAL" />
       <updated>1429015282536</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Úprava Frontendu.">
+      <created>1429016572521</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1429016572521</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="153359000" />
+    <option name="totallyTimeSpent" value="155711000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1024,7 +1025,7 @@
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.07835821" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.45945945" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.41945946" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23351352" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1104,14 +1105,15 @@
     <MESSAGE value="Připojování na dva různé servery." />
     <MESSAGE value="V založení nového hlasování musí být lidé." />
     <MESSAGE value="Úprava VoterGroup." />
-    <option name="LAST_COMMIT_MESSAGE" value="Úprava VoterGroup." />
+    <MESSAGE value="Úprava Frontendu." />
+    <option name="LAST_COMMIT_MESSAGE" value="Úprava Frontendu." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="44" />
+      <option name="time" value="45" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1120,13 +1122,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/ui.taglib.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.80697674" vertical-offset="12284" max-vertical-offset="17544">
-          <caret line="743" column="4" selection-start-line="743" selection-start-column="4" selection-end-line="743" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/exception/ClientException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
@@ -1272,14 +1267,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/bean/RegisterController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1190">
-          <caret line="43" column="8" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/bean/VoteView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1479">
@@ -1334,14 +1321,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/register.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="493" max-vertical-offset="748">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="32" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/login.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="663">
@@ -1363,28 +1342,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
           <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/rest/VoterClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3536">
-          <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2796#2797#0" expanded="false" />
-            <element signature="e#2835#2836#0" expanded="false" />
-            <element signature="e#2909#2910#0" expanded="false" />
-            <element signature="e#2948#2949#0" expanded="false" />
-            <element signature="e#3025#3026#0" expanded="false" />
-            <element signature="e#3068#3069#0" expanded="false" />
-            <element signature="e#5478#5479#0" expanded="false" />
-            <element signature="e#5515#5516#0" expanded="false" />
-            <element signature="e#5620#5621#0" expanded="false" />
-            <element signature="e#5657#5658#0" expanded="false" />
-            <element signature="e#5767#5768#0" expanded="false" />
-            <element signature="e#5804#5805#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1462,17 +1419,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/faces-config.xml">
-      <provider editor-type-id="com.intellij.jsf.yfilesGraph.editor.FacesNavigationFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.566668" vertical-offset="1456" max-vertical-offset="3128">
-          <caret line="129" column="26" selection-start-line="129" selection-start-column="26" selection-end-line="129" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/bean/UniversalController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
@@ -1489,26 +1435,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/bean/GroupController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="1445">
-          <caret line="70" column="23" selection-start-line="70" selection-start-column="23" selection-end-line="70" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/group-voters.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-14.076923" vertical-offset="484" max-vertical-offset="1598">
           <caret line="50" column="54" selection-start-line="50" selection-start-column="54" selection-end-line="50" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/tabMenu.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.653846" vertical-offset="240" max-vertical-offset="799">
-          <caret line="35" column="86" selection-start-line="35" selection-start-column="86" selection-end-line="35" selection-end-column="86" />
           <folding />
         </state>
       </provider>
@@ -1561,10 +1491,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/register-group.xhtml">
+    <entry file="file://$PROJECT_DIR$/web/vote-chart.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.423077" vertical-offset="34" max-vertical-offset="867">
-          <caret line="21" column="145" selection-start-line="21" selection-start-column="69" selection-end-line="21" selection-end-column="145" />
+        <state vertical-scroll-proportion="-13.576923" vertical-offset="55" max-vertical-offset="527">
+          <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/bean/GroupController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1445">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="40" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/faces-config.xml">
+      <provider editor-type-id="com.intellij.jsf.yfilesGraph.editor.FacesNavigationFileEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.866667" vertical-offset="2136" max-vertical-offset="3281">
+          <caret line="136" column="37" selection-start-line="136" selection-start-column="26" selection-end-line="136" selection-end-column="37" />
           <folding />
         </state>
       </provider>
@@ -1572,15 +1521,62 @@
     <entry file="file://$PROJECT_DIR$/web/create-group.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.269231" vertical-offset="81" max-vertical-offset="1139">
-          <caret line="22" column="100" selection-start-line="22" selection-start-column="100" selection-end-line="22" selection-end-column="100" />
+          <caret line="22" column="101" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="101" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/vote-chart.xhtml">
+    <entry file="file://$PROJECT_DIR$/web/tabMenu.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.81524247" vertical-offset="55" max-vertical-offset="527">
-          <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
+        <state vertical-scroll-proportion="-5.1538463" vertical-offset="121" max-vertical-offset="850">
+          <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/rest/VoterClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="35" max-vertical-offset="3842">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <element signature="e#730#731#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/wa2/poll/frontend/bean/RegisterController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="171" max-vertical-offset="1921">
+          <caret line="35" column="24" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+          <folding>
+            <element signature="e#3730#3731#0" expanded="true" />
+            <element signature="e#3764#3765#0" expanded="true" />
+            <element signature="e#3823#3824#0" expanded="true" />
+            <element signature="e#3869#3870#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/register-group.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.5" vertical-offset="34" max-vertical-offset="867">
+          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/update-voter.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="680">
+          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/register.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22567287" vertical-offset="248" max-vertical-offset="731">
+          <caret line="21" column="61" selection-start-line="21" selection-start-column="61" selection-end-line="21" selection-end-column="61" />
           <folding />
         </state>
       </provider>

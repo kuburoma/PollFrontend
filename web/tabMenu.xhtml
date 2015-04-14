@@ -12,8 +12,11 @@
     <h:form>
 
         <p:menubar>
+            <p:submenu label="Voter" icon="ui-icon-document">
+                <p:menuitem value="Update" ajax="false" outcome="updateVoter"/>
+            </p:submenu>
             <p:submenu label="Group" icon="ui-icon-document">
-                <p:menuitem value="Create" url="/create-group.xhtml"/>
+                <p:menuitem value="Create" ajax="false" outcome="createGroup"/>
                 <p:separator/>
                 <p:menuitem value="Supervised" ajax="false" outcome="supervisedGroups"/>
                 <p:separator/>

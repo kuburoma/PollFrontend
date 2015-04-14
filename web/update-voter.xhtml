@@ -8,14 +8,15 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
         <title>Register</title>
+        <ui:include src="/socket-header.xhtml"/>
     </h:head>
     <h:body>
 
-        <p:growl id="growl" sticky="true" showDetail="true"/>
+        <ui:include src="/tabMenu.xhtml"/>
 
        <h:form>
            <p:panelGrid columns="2" style="margin-left: auto; margin-right: auto; margin-top: 10px;">
-               <f:facet name="header">Register Form</f:facet>
+               <f:facet name="header">Update Voter</f:facet>
                <h:outputText value="FirstName"/>
                <p:inputText value="#{manageVoter.firstName}"/>
                <h:outputText value="LastName"/>
@@ -25,11 +26,7 @@
                <h:outputText value="Password"/>
                <p:password value="#{manageVoter.password}"/>
                <f:facet name="footer">
-                   <p:commandButton value="Register" action="#{manageVoter.register}"/>
-                   <p:selectOneMenu value="#{voter.restServerAddress}" style="width:125px">
-                       <f:selectItem itemLabel="Server 1" itemValue="http://localhost:8080" />
-                       <f:selectItem itemLabel="Server 2" itemValue="http://localhost:8081" />
-                   </p:selectOneMenu>
+                   <p:commandButton value="Update" action="#{manageVoter.update}"/>
                </f:facet>
            </p:panelGrid>
        </h:form>
