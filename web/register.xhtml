@@ -25,8 +25,8 @@
                <h:outputText value="Password"/>
                <p:password value="#{manageVoter.password}"/>
                <f:facet name="footer">
-                   <p:commandButton value="Register" action="#{manageVoter.register}"/>
-                   <p:selectOneMenu value="#{voter.restServerAddress}" style="width:125px">
+                   <p:commandButton value="Register" action="#{manageVoter.register}" style="vertical-align: middle"/>
+                   <p:selectOneMenu value="#{voter.restServerAddress}" style="width:125px; vertical-align: middle">
                        <f:selectItem itemLabel="Server 1" itemValue="http://localhost:8080" />
                        <f:selectItem itemLabel="Server 2" itemValue="http://localhost:8081" />
                    </p:selectOneMenu>

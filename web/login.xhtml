@@ -20,12 +20,12 @@
                <h:outputText value="Password"/>
                <p:password value="#{login.password}"/>
                <f:facet name="footer">
-                   <p:commandButton value="Login" action="#{login.login}"/>
-                   <p:selectOneMenu value="#{voter.restServerAddress}" style="width:125px">
+                   <p:commandButton value="Login" action="#{login.login}" style="vertical-align: middle"/>
+                   <p:selectOneMenu value="#{voter.restServerAddress}" style="width:125px; vertical-align: middle">
                        <f:selectItem itemLabel="Server 1" itemValue="http://localhost:8080" />
                        <f:selectItem itemLabel="Server 2" itemValue="http://localhost:8081" />
                    </p:selectOneMenu>
-                   <p:link outcome="register" value="Register" style="float: right;"/>
+                   <p:link outcome="register" value="Register" style="float: right; margin-top: 8px; margin-right: 10px;"/>
                </f:facet>
 
            </p:panelGrid>
