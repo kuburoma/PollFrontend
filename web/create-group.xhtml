@@ -17,8 +17,6 @@
 
     <ui:include src="/tabMenu.xhtml"/>
 
-    <p:growl id="growl" sticky="true" showDetail="true"/>
-
     <h:form>
 
         <div>
@@ -35,7 +33,7 @@
                     <h:outputText value="Name"/>
                 </p:column>
                 <p:column>
-                    <p:inputText value="#{createGroup.name}"/>
+                    <p:inputText value="#{manageGroup.name}"/>
                 </p:column>
 
 
@@ -43,7 +41,7 @@
                     <h:outputText value="Description"/>
                 </p:column>
                 <p:column>
-                    <p:inputTextarea rows="5" cols="30" value="#{createGroup.description}" counter="display"
+                    <p:inputTextarea rows="5" cols="30" value="#{manageGroup.description}" counter="display"
                                      maxlength="144" counterTemplate="{0} characters remaining."
                                      autoResize="false"/>
                     <h:outputText id="display"/>
@@ -52,7 +50,7 @@
                 <f:facet name="footer">
 
                     <p:column colspan="2">
-                        <p:commandButton value="Create" action="#{createGroup.createGroup}"/>
+                        <p:commandButton value="Create" action="#{manageGroup.createGroup}"/>
                     </p:column>
 
                 </f:facet>

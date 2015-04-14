@@ -5,6 +5,7 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <p:growl widgetVar="growlWV" />
+    <p:growl id="growl" sticky="true" showDetail="true"/>
 
     <p:socket onMessage="handleMessage" channel="/hlasovani" />
     <p:growl id="messages"/>

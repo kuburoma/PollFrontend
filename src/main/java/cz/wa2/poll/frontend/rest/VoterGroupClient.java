@@ -101,6 +101,26 @@ public class VoterGroupClient {
     }
 
     // @POST
+    // @Path("/{id}/poll")
+    public void updateVoterGroup(VoterGroupDTO voterGroupDTO, Long votergroup) throws ClientException {
+        WebTarget resourceTarget = target.path("/" + votergroup);
+        Invocation.Builder invocationBuilder = resourceTarget.request(MediaType.APPLICATION_JSON_TYPE);
+        Response response = invocationBuilder.put(Entity.entity(voterGroupDTO, MediaType.APPLICATION_JSON));
+        int status = response.getStatus();
+
+        if (logger.isDebugEnabled()) {
+            logger.debug("updateVoterGroup.status = " + status);
+        }
+
+        if (status != 200) {
+            String error = response.readEntity(String.class);
+            response.close();
+            throw new ClientException(error);
+        }
+        response.close();
+    }
+
+    // @POST
     // @Path("/{id}")
     public void deleteVoterGroup(Long votergroup) throws ClientException {
         WebTarget resourceTarget = target.path("/" + votergroup);

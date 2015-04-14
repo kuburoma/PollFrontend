@@ -26,7 +26,7 @@
     <navigation-rule>
         <from-view-id>/create-group.xhtml</from-view-id>
         <navigation-case>
-            <from-action>#{createGroup.createGroup}</from-action>
+            <from-action>#{manageGroup.createGroup}</from-action>
             <from-outcome>success</from-outcome>
             <to-view-id>/supervised-groups.xhtml</to-view-id>
             <redirect/>
@@ -118,6 +118,12 @@
         <from-view-id>/group-voters.xhtml</from-view-id>
         <navigation-case>
             <from-action>#{groupVotersView.removeUser(voter.id)}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/group-voters.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{manageGroup.updateGroup}</from-action>
             <from-outcome>success</from-outcome>
             <to-view-id>/group-voters.xhtml</to-view-id>
             <redirect/>
